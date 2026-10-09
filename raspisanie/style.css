@@ -1,0 +1,308 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* убирает двойные рамки */
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #d0d7de;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) td {
+    background: #f9fbfd; /* чередование строк */
+}
+
+td:hover {
+    background: #ffeaa7; /* подсветка при наведении */
+}
+/* ===== Базовые стили ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+/* ===== Таблица ===== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 16px 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 15px;
+    color: #2c3e50;
+    border-bottom: 1px solid #eef1f5;
+    transition: all 0.2s ease;
+}
+
+/* Номер урока */
+.num {
+    font-weight: bold;
+    color: #667eea;
+    background: #f8f9ff;
+    width: 60px;
+}
+
+/* Зебра — чередование строк */
+tbody tr:nth-child(even) td:not(.num) {
+    background: #fafbfe;
+}
+
+/* Ховер — строка подсвечивается */
+tbody tr:hover td {
+    background: #f0f4ff;
+    transform: scale(1.01);
+}
+
+/* ===== Цвета предметов ===== */
+.math    { background: #e3f2fd !important; color: #1565c0; font-weight: 600; } /* математика */
+.geom    { background: #e3f2fd !important; color: #1565c0; font-weight: 600; } /* геометрия */
+.phys    { background: #f3e5f5 !important; color: #6a1b9a; } /* физика */
+.chem    { background: #fff3e0 !important; color: #e65100; } /* химия */
+.bio     { background: #e8f5e9 !important; color: #2e7d32; } /* биология */
+.geo     { background: #fffde7 !important; color: #f57f17; } /* география */
+.info    { background: #e0f7fa !important; color: #00695c; } /* информатика */
+.hist    { background: #fbe9e7 !important; color: #bf360c; } /* история */
+.social  { background: #fbe9e7 !important; color: #bf360c; } /* обществознание */
+.rus     { background: #fce4ec !important; color: #ad1457; } /* русский */
+.lit     { background: #fce4ec !important; color: #ad1457; } /* литература */
+.eng     { background: #ede7f6 !important; color: #4527a0; } /* английский */
+.sport   { background: #e8f5e9 !important; color: #1b5e20; font-weight: 600; } /* физ-ра */
+.work    { background: #efebe9 !important; color: #4e342e; } /* труды */
+.obzr    { background: #e8eaf6 !important; color: #283593; } /* обзр */
+.prob    { background: #e1f5fe !important; color: #0277bd; } /* вероятность */
+.empty   { color: #ccc; background: #fafafa !important; } /* пусто */
+
+/* ===== Сегодняшний день ===== */
+th.today {
+    background: linear-gradient(135deg, #f857a6, #ff5858) !important;
+    position: relative;
+}
+th.today::after {
+    content: '★ сегодня';
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #ff5858;
+    white-space: nowrap;
+}
+td.today {
+    background: #fff5f7 !important;
+    font-weight: 600;
+}
+
+/* ===== Адаптив для телефонов ===== */
+@media (max-width: 700px) {
+    body { padding: 15px 8px; }
+    .container { padding: 15px; border-radius: 14px; }
+    h1 { font-size: 22px; }
+    th, td { padding: 8px 4px; font-size: 12px; }
+    .num { width: 35px; }
+}
+/* ===== Заголовок звонков — как у "Расписание уроков" ===== */
+.bells-title {
+    text-align: center;
+    color: #2c3e50;
+    font-family: inherit;              /* тот же шрифт, что у h1 */
+    font-size: 32px;                    /* как у h1 */
+    font-weight: bold;
+    margin: 40px 0 20px;
+    letter-spacing: normal;
+}
+
+/* ===== Таблица звонков ===== */
+.bells {
+    width: auto;                        /* не растягивать */
+    max-width: 600px;                   /* ограничить ширину */
+    margin: 0 auto;                     /* центрировать */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+}
+
+.bells th {
+    background: linear-gradient(135deg, #f857a6, #ff5858);
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.bells td {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    color: #2c3e50;
+    border-bottom: 1px solid #eef1f5;
+    background: #fff;
+}
+
+.bells td:first-child {
+    font-weight: bold;
+    color: #667eea;
+    background: #f8f9ff;
+    width: 70px;
+}
+
+.bells td:nth-child(2) {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.bells td:nth-child(3) {
+    color: #c62828;
+    font-weight: 600;
+}
+
+.bells tbody tr:hover td {
+    background: #fff5f7;
+}
+
+.bells tbody tr:last-child td {
+    border-bottom: none;
+}
+/* ===== Контейнер для двух таблиц звонков ===== */
+.bells-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 40px 0 20px;
+}
+
+.bells-col {
+    flex: 0 1 380px;
+    min-width: 280px;
+}
+
+.bells-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 15px;
+}
+
+.bells {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 700px) {
+    .bells-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .bells-col {
+        width: 100%;
+        max-width: 380px;
+    }
+}
+td {
+    padding: 16px 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;          /* ← ЖИРНЫЙ шрифт */
+    color: #1a252f;            /* ← потемнее цвет */
+    border-bottom: 1px solid #eef1f5;
+    transition: all 0.2s ease;
+    letter-spacing: 0.2px;
+}
+table td {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    z-index: 1;
+}
+
+table td:hover {
+    transform: translateY(-5px) scale(1.06);
+    z-index: 10;
+}
+table td {
+    transition: 
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease,
+        border-radius 0.4s ease,
+        background 0.4s ease;
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+}
+
+table td:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 
+        0 12px 25px rgba(102, 126, 234, 0.2),
+        0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    z-index: 10;
+}
