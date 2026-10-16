@@ -7,30 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="halloween-decor">
-    <div class="web web-left">
-    <div class="spider-thread"></div>
-    <div class="spider">🕷️</div>
-</div>
-<div class="web web-right"></div>
-    <div class="pumpkin pumpkin-left">
-        <div class="candy candy-1">🍬</div>
-        <div class="candy candy-2">🍭</div>
-        <div class="candy candy-3">🍫</div>
-        <div class="pumpkin-icon">🎃</div>
-    </div>
-    <div class="pumpkin pumpkin-right">
-        <div class="candy candy-1">🍬</div>
-        <div class="candy candy-2">🍭</div>
-        <div class="candy candy-3">🍫</div>
-        <div class="pumpkin-icon">🎃</div>
-    </div>
-</div>
-
 </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
-    <span class="icon-sun">🌞</span>
-    <span class="icon-moon">🌙</span>
+    <span class="toggle-track">
+        <span class="toggle-thumb">
+            <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </span>
+    </span>
 </button>
     <h1>Расписание уроков</h1>
 
@@ -50,56 +39,56 @@
             <tr>
                 <td>1</td>
                 <td class="rus" data-room="307" data-teacher="Вахрушева О.И">РоВ</td>
-                <td class="hist web-corner" data-room="310" data-teacher="Вешникова И.Г">история</td>
+                <td class="hist" data-room="310" data-teacher="Вешникова И.Г">история</td>
                 <td class="phys" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
                 <td class="hist" data-room="310" data-teacher="Вешникова И.Г">история</td>
                 <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td class="lit web-corner" data-room="307" data-teacher="Вахрушева О.И">литература</td>
+                <td class="lit" data-room="307" data-teacher="Вахрушева О.И">литература</td>
                 <td class="social" data-room="310" data-teacher="Вешникова И.Г">обществознание</td>
-                <td class="geo web-corner" data-room="313" data-teacher="Харисова В.О">география</td>
-                <td class="sport web-corner" data-room="спортзал" data-teacher="Демьяненко И.П">физ-ра</td>
+                <td class="geo" data-room="313" data-teacher="Харисова В.О">география</td>
+                <td class="sport" data-room="спортзал" data-teacher="Демьяненко И.П">физ-ра</td>
                 <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
             </tr>
             <tr>
                 <td>3</td>
                 <td class="bio" data-room="213" data-teacher="Иванова Е.В">биология</td>
-                <td class="rus web-corner" data-room="307" data-teacher="Вахрушева О.И">русский</td>
+                <td class="rus" data-room="307" data-teacher="Вахрушева О.И">русский</td>
                 <td class="bio" data-room="213" data-teacher="Иванова Е.В">биология</td>
                 <td class="lit" data-room="307" data-teacher="Вахрушева О.И">литература</td>
-                <td class="info web-corner" data-room="207" data-teacher="Вешникова М.В">информатика</td>
+                <td class="info" data-room="207" data-teacher="Вешникова М.В">информатика</td>
             </tr>
             <tr>
                 <td>4</td>
                 <td class="rus" data-room="307" data-teacher="Вахрушева О.И">русский</td>
                 <td class="lit" data-room="307" data-teacher="Вахрушева О.И">литература</td>
                 <td class="rus" data-room="307" data-teacher="Вахрушева О.И">русский</td>
-                <td class="geo web-corner" data-room="313" data-teacher="Харисова В.О">география</td>
+                <td class="geo" data-room="313" data-teacher="Харисова В.О">география</td>
                 <td class="chem" data-room="213" data-teacher="Иванова Е.В">химия</td>
             </tr>
             <tr>
                 <td>5</td>
                 <td class="sport" data-room="спортзал" data-teacher="Демеяненко И.П">физ-ра</td>
                 <td class="obzr" data-room="108" data-teacher="Кульбаева М.В">обзр</td>
-                <td class="work web-corner" data-room="104" data-teacher="Барыкина Н.А">труды</td>
+                <td class="work" data-room="104" data-teacher="Барыкина Н.А">труды</td>
                 <td class="phys" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
                 <td class="eng" data-room="309" data-teacher="Денисенко С.В">английский</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td class="phys web-corner" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
+                <td class="phys" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
                 <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
                 <td class="hist" data-room="310" data-teacher="Вешникова И.Г">история</td>
                 <td class="eng" data-room="309" data-teacher="Денисенко С.В">английский</td>
-                <td class="prob web-corner" data-room="314" data-teacher="Корнилова С.В">вероятность</td>
+                <td class="prob" data-room="314" data-teacher="Корнилова С.В">вероятность</td>
             </tr>
             <tr>
                 <td>7</td>
                 <td class="geom" data-room="314" data-teacher="Корнилова С.В">геометрия</td>
-                <td class="geom web-corner" data-room="314" data-teacher="Корнилова С.В">геометрия</td>
-                <td class="eng web-corner" data-room="309" data-teacher="Денисенко С.В">английский</td>
+                <td class="geom" data-room="314" data-teacher="Корнилова С.В">геометрия</td>
+                <td class="eng" data-room="309" data-teacher="Денисенко С.В">английский</td>
                 <td class="empty"></td>
                 <td class="empty"></td>
             </tr>
@@ -117,13 +106,13 @@
                     <tr><th>Урок</th><th>Начало</th><th>Конец</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td class="web-corner">1</td><td>8:00</td><td>8:40</td></tr>
-                    <tr><td>2</td><td>9:00</td><td class="web-corner">9:40</td></tr>
+                    <tr><td>1</td><td>8:00</td><td>8:40</td></tr>
+                    <tr><td>2</td><td>9:00</td><td>9:40</td></tr>
                     <tr><td>3</td><td>10:00</td><td>10:40</td></tr>
-                    <tr><td class="web-corner">4</td><td>11:00</td class="web-corner"><td>11:40</td></tr>
+                    <tr><td>4</td><td>11:00</td><td>11:40</td></tr>
                     <tr><td>5</td><td>12:00</td><td>12:40</td></tr>
-                    <tr><td class="web-corner">6</td><td>12:55</td><td>13:35</td></tr>
-                    <tr><td class="web-bottom-left">7</td><td>13:45</td><td class="web-corner">14:25</td></tr>
+                    <tr><td>6</td><td>12:55</td><td>13:35</td></tr>
+                    <tr><td>7</td><td>13:45</td><td>14:25</td></tr>
                 </tbody>
             </table>
         </div>
@@ -137,12 +126,12 @@
                 </thead>
                 <tbody>
                     <tr><td>1</td><td>8:00</td><td>8:40</td></tr>
-                    <tr><td class="web-corner">2</td><td>8:50</td><td>9:30</td></tr>
-                    <tr><td>3</td><td>9:50</td><td class="web-bottom-left">10:30</td></tr>
+                    <tr><td>2</td><td>8:50</td><td>9:30</td></tr>
+                    <tr><td>3</td><td>9:50</td><td>10:30</td></tr>
                     <tr><td>4</td><td>10:50</td><td>11:30</td></tr>
-                    <tr><td class="web-corner">5</td><td>11:50</td><td class="web-bottom-left"">12:30</td></tr>
+                    <tr><td>5</td><td>11:50</td><td>12:30</td></tr>
                     <tr><td>6</td><td>12:40</td><td>13:20</td></tr>
-                    <tr><td>7</td><td>13:30</td><td class="web-bottom-left">14:10</td></tr>
+                    <tr><td>7</td><td>13:30</td><td>14:10</td></tr>
                 </tbody>
             </table>
         </div>
