@@ -11,12 +11,14 @@ h1 {
 
 table {
     width: 100%;
-    border-collapse: collapse; /* убирает двойные рамки */
+    border-collapse: collapse;
+    /* убирает двойные рамки */
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     border: 1px solid #d0d7de;
     padding: 12px;
     text-align: center;
@@ -28,12 +30,15 @@ th {
 }
 
 tr:nth-child(even) td {
-    background: #f9fbfd; /* чередование строк */
+    background: #f9fbfd;
+    /* чередование строк */
 }
 
 td:hover {
-    background: #ffeaa7; /* подсветка при наведении */
+    background: #ffeaa7;
+    /* подсветка при наведении */
 }
+
 /* ===== Базовые стили ===== */
 * {
     box-sizing: border-box;
@@ -117,6 +122,7 @@ th.today {
     background: linear-gradient(135deg, #f857a6, #ff5858) !important;
     position: relative;
 }
+
 th.today::after {
     content: '★ сегодня';
     position: absolute;
@@ -127,6 +133,7 @@ th.today::after {
     color: #ff5858;
     white-space: nowrap;
 }
+
 td.today {
     background: #fff5f7 !important;
     font-weight: 600;
@@ -134,18 +141,38 @@ td.today {
 
 /* ===== Адаптив для телефонов ===== */
 @media (max-width: 700px) {
-    body { padding: 15px 8px; }
-    .container { padding: 15px; border-radius: 14px; }
-    h1 { font-size: 22px; }
-    th, td { padding: 8px 4px; font-size: 12px; }
-    .num { width: 35px; }
+    body {
+        padding: 15px 8px;
+    }
+
+    .container {
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    th,
+    td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    .num {
+        width: 35px;
+    }
 }
+
 /* ===== Заголовок звонков — как у "Расписание уроков" ===== */
 .bells-title {
     text-align: center;
     color: #2c3e50;
-    font-family: inherit;              /* тот же шрифт, что у h1 */
-    font-size: 32px;                    /* как у h1 */
+    font-family: inherit;
+    /* тот же шрифт, что у h1 */
+    font-size: 32px;
+    /* как у h1 */
     font-weight: bold;
     margin: 40px 0 20px;
     letter-spacing: normal;
@@ -153,9 +180,12 @@ td.today {
 
 /* ===== Таблица звонков ===== */
 .bells {
-    width: auto;                        /* не растягивать */
-    max-width: 600px;                   /* ограничить ширину */
-    margin: 0 auto;                     /* центрировать */
+    width: auto;
+    /* не растягивать */
+    max-width: 600px;
+    /* ограничить ширину */
+    margin: 0 auto;
+    /* центрировать */
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 12px;
@@ -207,6 +237,7 @@ td.today {
 .bells tbody tr:last-child td {
     border-bottom: none;
 }
+
 /* ===== Контейнер для двух таблиц звонков ===== */
 .bells-wrapper {
     display: flex;
@@ -244,21 +275,26 @@ td.today {
         flex-direction: column;
         align-items: center;
     }
+
     .bells-col {
         width: 100%;
         max-width: 380px;
     }
 }
+
 td {
     padding: 16px 10px;
     text-align: center;
     font-size: 16px;
-    font-weight: 600;          /* ← ЖИРНЫЙ шрифт */
-    color: #1a252f;            /* ← потемнее цвет */
+    font-weight: 600;
+    /* ← ЖИРНЫЙ шрифт */
+    color: #1a252f;
+    /* ← потемнее цвет */
     border-bottom: 1px solid #eef1f5;
     transition: all 0.2s ease;
     letter-spacing: 0.2px;
 }
+
 table td {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     position: relative;
@@ -269,8 +305,9 @@ table td:hover {
     transform: translateY(-5px) scale(1.06);
     z-index: 10;
 }
+
 table td {
-    transition: 
+    transition:
         transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
         box-shadow 0.4s ease,
         border-radius 0.4s ease,
@@ -282,7 +319,7 @@ table td {
 
 table td:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 
+    box-shadow:
         0 12px 25px rgba(102, 126, 234, 0.2),
         0 4px 10px rgba(0, 0, 0, 0.08);
     border-radius: 14px;
@@ -352,7 +389,7 @@ table td:hover {
     height: 30px;
     background: linear-gradient(135deg, #87ceeb, #4a90e2);
     border-radius: 30px;
-    box-shadow: 
+    box-shadow:
         inset 0 2px 4px rgba(0, 0, 0, 0.15),
         0 2px 8px rgba(0, 0, 0, 0.15);
     transition: background 0.4s ease;
@@ -372,7 +409,7 @@ table td:hover {
     align-items: center;
     justify-content: center;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-                background 0.4s ease;
+        background 0.4s ease;
     overflow: hidden;
 }
 
@@ -382,7 +419,8 @@ table td:hover {
     width: 14px;
     height: 14px;
     transition: opacity 0.3s ease, transform 0.4s ease;
-    color: #f59e0b;  /* оранжевый для солнца */
+    color: #f59e0b;
+    /* оранжевый для солнца */
 }
 
 /* По умолчанию — только солнце видно */
@@ -394,7 +432,8 @@ table td:hover {
 .icon-moon {
     opacity: 0;
     transform: rotate(180deg) scale(0.5);
-    color: #4a5dd4;  /* синий для луны */
+    color: #4a5dd4;
+    /* синий для луны */
 }
 
 /* ───── ТЁМНАЯ ТЕМА ───── */
@@ -402,7 +441,7 @@ table td:hover {
 /* Фон дорожки — тёмный */
 body.dark .toggle-track {
     background: linear-gradient(135deg, #1e2a47, #2a3a55);
-    box-shadow: 
+    box-shadow:
         inset 0 2px 4px rgba(0, 0, 0, 0.5),
         0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -422,7 +461,8 @@ body.dark .icon-sun {
 body.dark .icon-moon {
     opacity: 1;
     transform: rotate(0deg) scale(1);
-    color: #fbbf24;  /* жёлтый для луны в тёмной теме */
+    color: #fbbf24;
+    /* жёлтый для луны в тёмной теме */
 }
 
 /* ───── 📱 На телефоне — меньше ───── */
@@ -431,29 +471,43 @@ body.dark .icon-moon {
         top: 12px;
         right: 12px;
     }
+
     .toggle-track {
         width: 48px;
         height: 26px;
     }
+
     .toggle-thumb {
         width: 20px;
         height: 20px;
         top: 3px;
         left: 3px;
     }
+
     body.dark .toggle-thumb {
         transform: translateX(22px);
     }
+
     .icon {
         width: 12px;
         height: 12px;
     }
 }
+
 /* ===== ТЁМНАЯ ТЕМА ===== */
 
 /* Плавный переход всех цветов */
-body, .container, table, th, td, .bells, .bells td, .bells th,
-.bells-title, h1, h2 {
+body,
+.container,
+table,
+th,
+td,
+.bells,
+.bells td,
+.bells th,
+.bells-title,
+h1,
+h2 {
     transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -511,19 +565,62 @@ body.dark tbody tr:hover td {
 }
 
 /* ===== Цвета предметов (только текст) ===== */
-.math, .geom  { color: #1565c0; font-weight: 600; }
-.phys         { color: #6a1b9a; }
-.chem         { color: #e65100; }
-.bio          { color: #2e7d32; }
-.geo          { color: #f57f17; }
-.info         { color: #00695c; }
-.hist, .social { color: #bf360c; }
-.rus, .lit    { color: #ad1457; }
-.eng          { color: #4527a0; }
-.sport        { color: #1b5e20; font-weight: 600; }
-.work         { color: #4e342e; }
-.obzr         { color: #283593; }
-.prob         { color: #0277bd; }
+.math,
+.geom {
+    color: #1565c0;
+    font-weight: 600;
+}
+
+.phys {
+    color: #6a1b9a;
+}
+
+.chem {
+    color: #e65100;
+}
+
+.bio {
+    color: #2e7d32;
+}
+
+.geo {
+    color: #f57f17;
+}
+
+.info {
+    color: #00695c;
+}
+
+.hist,
+.social {
+    color: #bf360c;
+}
+
+.rus,
+.lit {
+    color: #ad1457;
+}
+
+.eng {
+    color: #4527a0;
+}
+
+.sport {
+    color: #1b5e20;
+    font-weight: 600;
+}
+
+.work {
+    color: #4e342e;
+}
+
+.obzr {
+    color: #283593;
+}
+
+.prob {
+    color: #0277bd;
+}
 
 /* Таблица звонков */
 body.dark .bells td {
@@ -549,6 +646,7 @@ body.dark .theme-toggle {
 body.dark .theme-toggle:hover {
     background: rgba(255, 255, 255, 0.25);
 }
+
 /* ===== ⭐ Подсветка сегодняшнего дня ===== */
 th.today {
     background: linear-gradient(135deg, #f857a6, #ff5858) !important;
@@ -566,8 +664,17 @@ th.today::after {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.6; transform: scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
 }
 
 td.today-col {
@@ -623,7 +730,8 @@ tr.past-lesson td {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     font-size: 14px;
     color: #2c3e50;
-    pointer-events: none;        /* мышка «проходит сквозь» */
+    pointer-events: none;
+    /* мышка «проходит сквозь» */
     opacity: 0;
     transform: translateY(6px);
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -693,9 +801,11 @@ td[data-room] {
 td[data-room]:active {
     transform: scale(0.97);
 }
+
 .tooltip {
     transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
 /* ===== Фиксы для тёмной темы ===== */
 
 /* Фон таблицы в тёмной теме */
@@ -708,14 +818,17 @@ tr.past-lesson td.empty,
 tr.past-lesson td:empty {
     opacity: 1 !important;
 }
+
 /* ============================================ */
 /* ЕДИНЫЙ СТИЛЬ ПРЕДМЕТОВ — плотный, без цветов */
 /* ============================================ */
 
 /* Все предметы в таблице — один цвет, жирный */
 #schedule-table tbody td {
-    color: #000000 !important;      /* ← чистый ЧЁРНЫЙ */
-    font-weight: 800 !important;    /* ← ЖИРНЕЕ */
+    color: #000000 !important;
+    /* ← чистый ЧЁРНЫЙ */
+    font-weight: 800 !important;
+    /* ← ЖИРНЕЕ */
     font-size: 16px !important;
     letter-spacing: 0.3px;
     background: #ffffff !important;
@@ -757,6 +870,7 @@ body.dark #schedule-table tbody td.empty {
     background: #1a2438 !important;
     font-weight: 400 !important;
 }
+
 /* ═══════════════════════════════════════════ */
 /* ФИНАЛ: чёрный жирный шрифт предметов        */
 /* ═══════════════════════════════════════════ */
@@ -803,6 +917,7 @@ body.dark #schedule-table tbody td.empty {
     background: #1a2438 !important;
     font-weight: 400 !important;
 }
+
 /* ═══════════════════════════════════════════ */
 /* Пустые ячейки — как все остальные           */
 /* ═══════════════════════════════════════════ */
@@ -820,6 +935,7 @@ body.dark #schedule-table tbody td.empty {
     color: #4a5a75 !important;
     font-weight: 400 !important;
 }
+
 /* ═══════════════════════════════════════════ */
 /* Шрифт в звонках — чуть жирнее               */
 /* ═══════════════════════════════════════════ */
@@ -854,20 +970,26 @@ body.dark #schedule-table tbody td.empty {
 body.dark .bells tbody td {
     font-weight: 600 !important;
 }
+
 body.dark .bells tbody td:first-child {
     font-weight: 800 !important;
 }
+
 body.dark .bells tbody td:nth-child(2),
 body.dark .bells tbody td:nth-child(3) {
     font-weight: 700 !important;
 }
+
 body.dark .bells thead th {
     font-weight: 800 !important;
 }
+
 .bells tbody td:nth-child(2),
 .bells tbody td:nth-child(3) {
-    font-weight: 800 !important;   /* было 700 */
+    font-weight: 800 !important;
+    /* было 700 */
 }
+
 /* ═══════════════════════════════════════════ */
 /* ✨ ТЕНИ НА ТЕКСТАХ — предметы, цифры, звонки */
 /* ═══════════════════════════════════════════ */
@@ -876,7 +998,7 @@ body.dark .bells thead th {
 
 /* Заголовок страницы */
 h1 {
-    text-shadow: 
+    text-shadow:
         0 1px 0 rgba(255, 255, 255, 0.8),
         0 2px 4px rgba(0, 0, 0, 0.15) !important;
 }
@@ -915,68 +1037,72 @@ h1 {
 
 /* Заголовок в тёмной теме */
 body.dark h1 {
-    text-shadow: 
+    text-shadow:
         0 0 20px rgba(139, 158, 255, 0.4),
         0 2px 8px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Заголовки таблицы в тёмной */
 body.dark #schedule-table thead th {
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(139, 158, 255, 0.5),
         0 2px 6px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Предметы в тёмной — лёгкое свечение */
 body.dark #schedule-table tbody td {
-    text-shadow: 
+    text-shadow:
         0 0 8px rgba(139, 158, 255, 0.25),
         0 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Номера уроков в тёмной — сильнее светятся */
 body.dark #schedule-table tbody td:first-child {
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(139, 158, 255, 0.6),
         0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Заголовки звонков в тёмной */
 body.dark .bells thead th {
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(255, 100, 150, 0.5),
         0 2px 6px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Данные в звонках в тёмной */
 body.dark .bells tbody td {
-    text-shadow: 
+    text-shadow:
         0 0 6px rgba(139, 158, 255, 0.2),
         0 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
+
 #schedule-table tbody td {
-    text-shadow: 
+    text-shadow:
         0 1px 0 #ffffff,
         0 2px 0 #dddddd,
         0 3px 4px rgba(0, 0, 0, 0.2) !important;
 }
+
 #schedule-table tbody td {
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
 }
+
 /* 🌌 Космическая тёмная дорожка */
 body.dark .toggle-track {
     background: linear-gradient(135deg, #1a1a2e, #3a3a6a) !important;
-    box-shadow: 
+    box-shadow:
         inset 0 2px 4px rgba(0, 0, 0, 0.5),
         0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
+
 /* ═══════════════════════════════════════════ */
 /* ✨ Белое свечение текста в тёмной теме       */
 /* ═══════════════════════════════════════════ */
 
 /* Предметы в таблице — мягкое белое свечение */
 body.dark #schedule-table tbody td {
-    text-shadow: 
+    text-shadow:
         0 0 8px rgba(255, 255, 255, 0.4),
         0 0 15px rgba(255, 255, 255, 0.2),
         0 1px 2px rgba(0, 0, 0, 0.6) !important;
@@ -984,7 +1110,7 @@ body.dark #schedule-table tbody td {
 
 /* Номера уроков — свечение чуть сильнее (синеватое) */
 body.dark #schedule-table tbody td:first-child {
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(139, 158, 255, 0.7),
         0 0 20px rgba(139, 158, 255, 0.4),
         0 1px 2px rgba(0, 0, 0, 0.6) !important;
@@ -992,7 +1118,7 @@ body.dark #schedule-table tbody td:first-child {
 
 /* Заголовки таблицы (УРОК / ПОНЕДЕЛЬНИК...) */
 body.dark #schedule-table thead th {
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(255, 255, 255, 0.5),
         0 0 20px rgba(255, 255, 255, 0.25),
         0 1px 3px rgba(0, 0, 0, 0.6) !important;
@@ -1000,7 +1126,7 @@ body.dark #schedule-table thead th {
 
 /* Заголовок страницы «Расписание уроков» */
 body.dark h1 {
-    text-shadow: 
+    text-shadow:
         0 0 15px rgba(255, 255, 255, 0.5),
         0 0 30px rgba(255, 255, 255, 0.25),
         0 2px 6px rgba(0, 0, 0, 0.6) !important;
@@ -1008,7 +1134,7 @@ body.dark h1 {
 
 /* Заголовки звонков (УРОК / НАЧАЛО / КОНЕЦ) */
 body.dark .bells thead th {
-    text-shadow: 
+    text-shadow:
         0 0 10px rgba(255, 255, 255, 0.5),
         0 0 20px rgba(255, 255, 255, 0.25),
         0 1px 3px rgba(0, 0, 0, 0.6) !important;
@@ -1016,7 +1142,7 @@ body.dark .bells thead th {
 
 /* Данные в звонках (цифры, время) */
 body.dark .bells tbody td {
-    text-shadow: 
+    text-shadow:
         0 0 6px rgba(255, 255, 255, 0.35),
         0 0 12px rgba(255, 255, 255, 0.15),
         0 1px 2px rgba(0, 0, 0, 0.6) !important;
@@ -1024,7 +1150,7 @@ body.dark .bells tbody td {
 
 /* Заголовки «🔔 Звонки — Понедельник 🔔» */
 body.dark .bells-title {
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(255, 255, 255, 0.4),
         0 0 24px rgba(255, 255, 255, 0.2),
         0 1px 3px rgba(0, 0, 0, 0.6) !important;
@@ -1032,149 +1158,162 @@ body.dark .bells-title {
 
 /* Подсказка при наведении — предмет */
 body.dark .tooltip-subject {
-    text-shadow: 
+    text-shadow:
         0 0 8px rgba(246, 244, 244, 0.751),
         0 0 15px rgba(255, 255, 255, 0.2) !important;
 }
+
 /* ═══════════════════════════════════════════ */
-/* ✨ ЯРКИЕ предметы в тёмной теме              */
+/* ✨ ФИНАЛ — яркое свечение в тёмной теме      */
 /* ═══════════════════════════════════════════ */
 
-/* Предметы — чисто БЕЛЫЙ, максимально жирный, сильное свечение */
+/* Предметы — ярко-белые с сильным свечением */
 body.dark #schedule-table tbody td {
     color: #ffffff !important;
     font-weight: 800 !important;
-    text-shadow: 
-        text-shadow: 
-    text-shadow: 
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
+    background: #2a3a55 !important;
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 1),
+        0 0 25px rgba(255, 255, 255, 0.7),
+        0 0 40px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(255, 255, 255, 0.15),
+        0 1px 2px rgba(0, 0, 0, 0.9) !important;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Номера уроков — голубые, ярко светятся */
+/* Номера уроков — голубые */
 body.dark #schedule-table tbody td:first-child {
     color: #a8b8ff !important;
     font-weight: 900 !important;
-    text-shadow: 
+    background: #324266 !important;
+    text-shadow:
         0 0 12px rgba(139, 158, 255, 1),
         0 0 25px rgba(139, 158, 255, 0.6),
         0 0 40px rgba(139, 158, 255, 0.3),
         0 1px 2px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Заголовки таблицы — белые с сильным свечением */
+/* Заголовки таблицы */
 body.dark #schedule-table thead th {
     color: #ffffff !important;
     font-weight: 800 !important;
-    text-shadow: 
-        text-shadow: 
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
-
-/* Заголовок страницы */
-body.dark h1 {
-    color: #ffffff !important;
-    text-shadow:  
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
-}
-
-/* Звонки — время и номера */
-body.dark .bells tbody td {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    text-shadow: 
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
-}
-
-/* Заголовки звонков */
-body.dark .bells thead th {
-    color: #ffffff !important;
-    text-shadow:  
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
-}
-
-/* Заголовки «🔔 Звонки — ...» */
-body.dark .bells-title {
-    color: #ffffff !important;
-    text-shadow: 
-    0 0 10px rgba(139, 200, 255, 1),
-    0 0 25px rgba(139, 200, 255, 0.6),
-    0 0 40px rgba(139, 200, 255, 0.3) !important;
-    /* ═══════════════════════════════════════════ */
-/* 🎯 ФИНАЛЬНЫЕ ШТРИХИ ТЁМНОЙ ТЕМЫ             */
-/* ═══════════════════════════════════════════ */
-
-/* Заголовки дней недели — свечение */
-body.dark #schedule-table thead th {
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(255, 255, 255, 0.9),
         0 0 25px rgba(255, 255, 255, 0.5),
         0 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
 
-/* Сегодняшний день (Пятница) — ярче */
-body.dark #schedule-table thead th.today {
-    text-shadow: 
-        0 0 15px rgba(255, 255, 255, 1),
-        0 0 30px rgba(255, 255, 255, 0.6),
-        0 0 45px rgba(255, 255, 255, 0.3),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Заголовок страницы — максимум свечения */
+/* Заголовок страницы */
 body.dark h1 {
     color: #ffffff !important;
-    text-shadow: 
+    text-shadow:
         0 0 20px rgba(255, 255, 255, 1),
         0 0 40px rgba(255, 255, 255, 0.6),
         0 0 60px rgba(255, 255, 255, 0.3),
         0 2px 6px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Звонки — белые с свечением */
+/* Звонки — заголовки */
+body.dark .bells-title {
+    color: #ffffff !important;
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Звонки — данные */
 body.dark .bells tbody td {
     color: #ffffff !important;
     font-weight: 700 !important;
-    text-shadow: 
-        0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 16px rgba(255, 255, 255, 0.4),
-        0 1px 2px rgba(0, 0, 0, 0.7) !important;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 16px rgba(255, 255, 255, 0.35) !important;
 }
 
-/* Заголовки звонков (УРОК / НАЧАЛО / КОНЕЦ) */
+/* Звонки — номера уроков */
+body.dark .bells tbody td:first-child {
+    color: #a8b8ff !important;
+    font-weight: 900 !important;
+    text-shadow:
+        0 0 10px rgba(139, 158, 255, 1),
+        0 0 20px rgba(139, 158, 255, 0.6),
+        0 0 30px rgba(139, 158, 255, 0.3) !important;
+}
+
+/* Звонки — заголовки колонок */
 body.dark .bells thead th {
     color: #ffffff !important;
-    text-shadow: 
+    text-shadow:
         0 0 12px rgba(255, 255, 255, 0.9),
         0 0 24px rgba(255, 255, 255, 0.5),
         0 1px 3px rgba(0, 0, 0, 0.7) !important;
 }
+/* ═══════════════════════════════════════════ */
+/* 🎯 ПЛАВНЫЕ И КРАСИВЫЕ ХОВЕРЫ НА ЯЧЕЙКАХ      */
+/* ═══════════════════════════════════════════ */
 
-/* «🔔 Звонки — Понедельник 🔔» — со свечением */
-body.dark .bells-title {
-    color: #ffffff !important;
-    text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.8),
-        0 0 30px rgba(255, 255, 255, 0.4),
-        0 1px 3px rgba(0, 0, 0, 0.6) !important;
+/* Ячейки — базовая подготовка */
+#schedule-table tbody td {
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+    transition: 
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        border-radius 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.4s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);       /* GPU-ускорение */
+    backface-visibility: hidden;
 }
 
-/* Фон ячеек — чуть светлее, для контраста */
-body.dark #schedule-table tbody td {
-    background: #2a3a55 !important;
+/* Наведение — мягко поднимается, чуть увеличивается */
+#schedule-table tbody td:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 8px 20px rgba(102, 126, 234, 0.18),
+        0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    z-index: 10;
 }
 
-body.dark #schedule-table tbody td:first-child {
-    background: #324266 !important;
+/* ───── Тёмная тема — своя тень ───── */
+body.dark #schedule-table tbody td:hover {
+    box-shadow: 
+        0 8px 25px rgba(139, 158, 255, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(139, 200, 255, 0.15);
+}
+
+/* ───── Звонки — такие же плавные ───── */
+.bells tbody td {
+    position: relative;
+    z-index: 1;
+    transition: 
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.4s ease;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.bells tbody td:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 6px 16px rgba(102, 126, 234, 0.15),
+        0 3px 8px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+}
+
+body.dark .bells tbody td:hover {
+    box-shadow: 
+        0 6px 20px rgba(139, 158, 255, 0.2),
+        0 3px 10px rgba(0, 0, 0, 0.35);
+}
+/* Плавность для звонков */
+.bells td {
+    transition: 
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.3s ease !important;
 }
