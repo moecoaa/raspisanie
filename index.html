@@ -7,10 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="halloween-decor">
+    <div class="web web-left">
+    <div class="spider-thread"></div>
+    <div class="spider">🕷️</div>
+</div>
+<div class="web web-right"></div>
+    <div class="pumpkin pumpkin-left">
+        <div class="candy candy-1">🍬</div>
+        <div class="candy candy-2">🍭</div>
+        <div class="candy candy-3">🍫</div>
+        <div class="pumpkin-icon">🎃</div>
+    </div>
+    <div class="pumpkin pumpkin-right">
+        <div class="candy candy-1">🍬</div>
+        <div class="candy candy-2">🍭</div>
+        <div class="candy candy-3">🍫</div>
+        <div class="pumpkin-icon">🎃</div>
+    </div>
+</div>
+
+</div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+    <span class="icon-sun">🌞</span>
+    <span class="icon-moon">🌙</span>
+</button>
     <h1>Расписание уроков</h1>
 
     <!-- Таблица уроков -->
-    <table>
+    <table id="schedule-table">
         <thead>
             <tr>
                 <th>Урок</th>
@@ -24,59 +49,59 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>РоВ</td>
-                <td>история</td>
-                <td>физика</td>
-                <td>история</td>
-                <td>алгебра</td>
+                <td class="rus" data-room="307" data-teacher="Вахрушева О.И">РоВ</td>
+                <td class="hist web-corner" data-room="310" data-teacher="Вешникова И.Г">история</td>
+                <td class="phys" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
+                <td class="hist" data-room="310" data-teacher="Вешникова И.Г">история</td>
+                <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>литература</td>
-                <td>обществознание</td>
-                <td>география</td>
-                <td>физ-ра</td>
-                <td>алгебра</td>
+                <td class="lit web-corner" data-room="307" data-teacher="Вахрушева О.И">литература</td>
+                <td class="social" data-room="310" data-teacher="Вешникова И.Г">обществознание</td>
+                <td class="geo web-corner" data-room="313" data-teacher="Харисова В.О">география</td>
+                <td class="sport web-corner" data-room="спортзал" data-teacher="Демьяненко И.П">физ-ра</td>
+                <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>биология</td>
-                <td>русский</td>
-                <td>биология</td>
-                <td>литература</td>
-                <td>информатика</td>
+                <td class="bio" data-room="213" data-teacher="Иванова Е.В">биология</td>
+                <td class="rus web-corner" data-room="307" data-teacher="Вахрушева О.И">русский</td>
+                <td class="bio" data-room="213" data-teacher="Иванова Е.В">биология</td>
+                <td class="lit" data-room="307" data-teacher="Вахрушева О.И">литература</td>
+                <td class="info web-corner" data-room="207" data-teacher="Вешникова М.В">информатика</td>
             </tr>
             <tr>
                 <td>4</td>
-                <td>русский</td>
-                <td>литература</td>
-                <td>русский</td>
-                <td>география</td>
-                <td>химия</td>
+                <td class="rus" data-room="307" data-teacher="Вахрушева О.И">русский</td>
+                <td class="lit" data-room="307" data-teacher="Вахрушева О.И">литература</td>
+                <td class="rus" data-room="307" data-teacher="Вахрушева О.И">русский</td>
+                <td class="geo web-corner" data-room="313" data-teacher="Харисова В.О">география</td>
+                <td class="chem" data-room="213" data-teacher="Иванова Е.В">химия</td>
             </tr>
             <tr>
                 <td>5</td>
-                <td>физ-ра</td>
-                <td>обзр</td>
-                <td>труды</td>
-                <td>физика</td>
-                <td>английский</td>
+                <td class="sport" data-room="спортзал" data-teacher="Демеяненко И.П">физ-ра</td>
+                <td class="obzr" data-room="108" data-teacher="Кульбаева М.В">обзр</td>
+                <td class="work web-corner" data-room="104" data-teacher="Барыкина Н.А">труды</td>
+                <td class="phys" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
+                <td class="eng" data-room="309" data-teacher="Денисенко С.В">английский</td>
             </tr>
             <tr>
                 <td>6</td>
-                <td>физика</td>
-                <td>алгебра</td>
-                <td>история</td>
-                <td>английский</td>
-                <td>вероятность</td>
+                <td class="phys web-corner" data-room="311" data-teacher="Кузнецова Л.В">физика</td>
+                <td class="math" data-room="314" data-teacher="Корнилова С.В">алгебра</td>
+                <td class="hist" data-room="310" data-teacher="Вешникова И.Г">история</td>
+                <td class="eng" data-room="309" data-teacher="Денисенко С.В">английский</td>
+                <td class="prob web-corner" data-room="314" data-teacher="Корнилова С.В">вероятность</td>
             </tr>
             <tr>
                 <td>7</td>
-                <td>геометрия</td>
-                <td>геометрия</td>
-                <td>английский</td>
-                <td></td>
-                <td></td>
+                <td class="geom" data-room="314" data-teacher="Корнилова С.В">геометрия</td>
+                <td class="geom web-corner" data-room="314" data-teacher="Корнилова С.В">геометрия</td>
+                <td class="eng web-corner" data-room="309" data-teacher="Денисенко С.В">английский</td>
+                <td class="empty"></td>
+                <td class="empty"></td>
             </tr>
         </tbody>
     </table>
@@ -92,13 +117,13 @@
                     <tr><th>Урок</th><th>Начало</th><th>Конец</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>8:00</td><td>8:40</td></tr>
-                    <tr><td>2</td><td>9:00</td><td>9:40</td></tr>
+                    <tr><td class="web-corner">1</td><td>8:00</td><td>8:40</td></tr>
+                    <tr><td>2</td><td>9:00</td><td class="web-corner">9:40</td></tr>
                     <tr><td>3</td><td>10:00</td><td>10:40</td></tr>
-                    <tr><td>4</td><td>11:00</td><td>11:40</td></tr>
+                    <tr><td class="web-corner">4</td><td>11:00</td class="web-corner"><td>11:40</td></tr>
                     <tr><td>5</td><td>12:00</td><td>12:40</td></tr>
-                    <tr><td>6</td><td>12:55</td><td>13:35</td></tr>
-                    <tr><td>7</td><td>13:45</td><td>14:25</td></tr>
+                    <tr><td class="web-corner">6</td><td>12:55</td><td>13:35</td></tr>
+                    <tr><td class="web-bottom-left">7</td><td>13:45</td><td class="web-corner">14:25</td></tr>
                 </tbody>
             </table>
         </div>
@@ -112,17 +137,179 @@
                 </thead>
                 <tbody>
                     <tr><td>1</td><td>8:00</td><td>8:40</td></tr>
-                    <tr><td>2</td><td>8:50</td><td>9:30</td></tr>
-                    <tr><td>3</td><td>9:50</td><td>10:30</td></tr>
+                    <tr><td class="web-corner">2</td><td>8:50</td><td>9:30</td></tr>
+                    <tr><td>3</td><td>9:50</td><td class="web-bottom-left">10:30</td></tr>
                     <tr><td>4</td><td>10:50</td><td>11:30</td></tr>
-                    <tr><td>5</td><td>11:50</td><td>12:30</td></tr>
+                    <tr><td class="web-corner">5</td><td>11:50</td><td class="web-bottom-left"">12:30</td></tr>
                     <tr><td>6</td><td>12:40</td><td>13:20</td></tr>
-                    <tr><td>7</td><td>13:30</td><td>14:10</td></tr>
+                    <tr><td>7</td><td>13:30</td><td class="web-bottom-left">14:10</td></tr>
                 </tbody>
             </table>
         </div>
 
     </div>
+<script>
+    // 🌙 Тёмная тема
+    const toggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
 
+    // Применяем сохранённую тему при загрузке
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+    }
+
+    // Клик по кнопке
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+
+        // Сохраняем выбор
+        if (document.body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+<!-- 💬 Модальное окно с подсказкой -->
+<!-- 💬 Всплывающая подсказка -->
+<div id="tooltip" class="tooltip">
+    <div class="tooltip-subject" id="tooltip-subject"></div>
+    <div class="tooltip-row">
+        <span class="tooltip-label">🚪</span>
+        <span id="tooltip-room"></span>
+    </div>
+    <div class="tooltip-row">
+        <span class="tooltip-label">👩‍🏫</span>
+        <span id="tooltip-teacher"></span>
+    </div>
+</div>
+<script>
+    // ============================================================
+    // ⭐ 1. ПОДСВЕТКА СЕГОДНЯШНЕГО ДНЯ
+    // ============================================================
+    const dayNames = ['', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница'];
+    const today = new Date().getDay(); // 1=Пн, 2=Вт, ..., 5=Пт
+    const todayName = dayNames[today]; // например, "Среда"
+
+    if (todayName) {
+        // Ищем колонку с сегодняшним днём в шапке
+        const headers = document.querySelectorAll('thead th');
+        let todayIndex = -1;
+
+        headers.forEach((th, i) => {
+            if (th.textContent.trim().toLowerCase() === todayName.toLowerCase()) {
+                th.classList.add('today');
+                todayIndex = i;
+            }
+        });
+
+        // Подсвечиваем всю колонку
+        if (todayIndex !== -1) {
+            document.querySelectorAll('tbody tr').forEach(tr => {
+                const cell = tr.children[todayIndex];
+                if (cell) cell.classList.add('today-col');
+            });
+        }
+    }
+
+    // ============================================================
+    // 🔴 2. ПОДСВЕТКА ТЕКУЩЕГО УРОКА
+    // ============================================================
+    // 📌 Расписание звонков (для понедельника и обычных дней)
+    const bellsSchedule = {
+        monday: [
+            ['08:00', '08:40'], ['09:00', '09:40'], ['10:00', '10:40'],
+            ['11:00', '11:40'], ['12:00', '12:40'], ['12:55', '13:35'],
+            ['13:45', '14:25']
+        ],
+        default: [
+            ['08:00', '08:40'], ['08:50', '09:30'], ['09:50', '10:30'],
+            ['10:50', '11:30'], ['11:50', '12:30'], ['12:40', '13:20'],
+            ['13:30', '14:10']
+        ]
+    };
+
+    function highlightCurrentLesson() {
+        const now = new Date();
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+        // Определяем расписание звонков (Пн или остальные)
+        const isMonday = now.getDay() === 1;
+        const bells = isMonday ? bellsSchedule.monday : bellsSchedule.default;
+
+        // Ищем текущий урок
+        const rows = document.querySelectorAll('#schedule-table tbody tr');
+        rows.forEach((tr, i) => {
+            tr.classList.remove('current-lesson', 'past-lesson');
+            const bell = bells[i];
+            if (!bell) return;
+
+            const [startH, startM] = bell[0].split(':').map(Number);
+            const [endH, endM]     = bell[1].split(':').map(Number);
+            const startMin = startH * 60 + startM;
+            const endMin   = endH   * 60 + endM;
+
+            if (currentMinutes >= startMin && currentMinutes < endMin) {
+                tr.classList.add('current-lesson');
+            } else if (currentMinutes >= endMin) {
+                tr.classList.add('past-lesson');
+            }
+        });
+    }
+
+    // Запускаем сразу и обновляем каждую минуту
+    if (todayName) {
+        highlightCurrentLesson();
+        setInterval(highlightCurrentLesson, 60000);
+    }
+
+  // ============================================================
+// 💬 3. ПОДСКАЗКИ ПРИ НАВЕДЕНИИ
+// ============================================================
+const tooltip        = document.getElementById('tooltip');
+const tooltipSubject = document.getElementById('tooltip-subject');
+const tooltipRoom    = document.getElementById('tooltip-room');
+const tooltipTeacher = document.getElementById('tooltip-teacher');
+
+document.querySelectorAll('td[data-room]').forEach(td => {
+
+    td.addEventListener('mouseenter', () => {
+        // Заполняем данными
+        tooltipSubject.textContent = td.textContent.trim();
+        tooltipRoom.textContent    = td.dataset.room    || '—';
+        tooltipTeacher.textContent = td.dataset.teacher || '—';
+
+        // Показываем
+        tooltip.classList.add('visible');
+    });
+
+    td.addEventListener('mousemove', (e) => {
+        // Позиционируем рядом с курсором
+        const offsetX = 15;  // отступ вправо
+        const offsetY = 15;  // отступ вниз
+
+        let x = e.clientX + offsetX;
+        let y = e.clientY + offsetY;
+
+        // Проверяем, не вылезает ли за экран справа
+        const tooltipWidth  = tooltip.offsetWidth;
+        const tooltipHeight = tooltip.offsetHeight;
+
+        if (x + tooltipWidth > window.innerWidth - 10) {
+            x = e.clientX - tooltipWidth - offsetX;
+        }
+        if (y + tooltipHeight > window.innerHeight - 10) {
+            y = e.clientY - tooltipHeight - offsetY;
+        }
+
+        tooltip.style.left = x + 'px';
+        tooltip.style.top  = y + 'px';
+    });
+
+    td.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible');
+    });
+});
+</script>
 </body>
 </html>
