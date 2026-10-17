@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр по русскому</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <div class="quiz-app">
+        <div class="quiz-header">
+            <div class="header-top">
+                <h1>🎓 Тренажёр по русскому</h1>
+                <button id="themeToggle" class="theme-switch">
+                    <span class="sun"></span><span class="moon"></span>
+                </button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <span class="progress-text" id="progressText">Вопрос 1 из 20</span>
+        </div>
+
+        <div class="quiz-card" id="quizContent">
+            <div class="theory-box">
+                <div class="theory-icon">💡</div>
+                <div class="theory-content">
+                    <h3 id="theoryTitle">Тема</h3>
+                    <div class="simple-explain" id="simpleText"></div>
+                    <div class="official-rule"><strong>Правило:</strong> <span id="theoryText"></span></div>
+                    <div class="example-box" id="exampleBox">
+                        <strong>Пример:</strong> <span id="exampleText"></span>
+                    </div>
+                    <div class="glossary" id="glossaryBox"></div>
+                    <div class="custom-tooltip" id="tooltipBox">
+                        <div class="tooltip-header"><span id="tooltipTitle">Термин</span><button id="closeTooltip">✕</button></div>
+                        <p id="tooltipText"></p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="questionText">Загрузка...</h2>
+            
+            <div class="options" id="optionsContainer"></div>
+            <button class="submit-btn" id="checkOptionsBtn" style="display: none; margin-top: 15px;">Проверить ответы</button>
+            
+            <div class="input-container" id="inputContainer" style="display: none;">
+                <div class="audio-control" id="audioControl" style="display: none;">
+                    <button class="play-audio-btn" id="playAudioBtn">🔊 Прослушать слово</button>
+                </div>
+                <input type="text" id="textInput" class="text-input" placeholder="Впиши ответ сюда..." autocomplete="off">
+                <button class="submit-btn" id="submitBtn">Проверить</button>
+            </div>
+
+            <div class="explanation" id="explanationBox">
+                <p id="explanationText"></p>
+            </div>
+
+            <button class="next-btn" id="nextBtn">Следующий вопрос →</button>
+        </div>
+
+        <div class="results-screen" id="resultsScreen">
+            <h2>🎉 Тест пройден!</h2>
+            <div class="score-circle"><span id="finalScore">0/20</span></div>
+            <div class="grade-box">
+                <h3>Твоя оценка:</h3>
+                <div class="grade-mark" id="finalGrade">5</div>
+            </div>
+            <div class="feedback-box" id="feedbackBox">
+                <h3>📌 Что подтянуть:</h3>
+                <ul id="feedbackList"></ul>
+            </div>
+            <button class="restart-btn" onclick="location.reload()">Пройти заново 🔄</button>
+        </div>
+    </div>
+
+    <!-- Подключаем скрипт -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,1319 +1,230 @@
+/* Базовые стили */
 body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
-    padding: 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 !important;
+    padding: 40px 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    min-height: 100vh !important;
+    box-sizing: border-box !important;
+    transition: background 0.4s, color 0.4s;
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50;
+body.light-mode {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #1e293b;
+}
+body.dark-mode {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: #f8fafc;
 }
 
-table {
+.quiz-app {
     width: 100%;
-    border-collapse: collapse;
-    /* убирает двойные рамки */
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-th,
-td {
-    border: 1px solid #d0d7de;
-    padding: 12px;
-    text-align: center;
-}
-
-th {
-    background: #3498db;
-    color: white;
-}
-
-tr:nth-child(even) td {
-    background: #f9fbfd;
-    /* чередование строк */
-}
-
-td:hover {
-    background: #ffeaa7;
-    /* подсветка при наведении */
-}
-
-/* ===== Базовые стили ===== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    min-height: 100vh;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 25px;
-    font-size: 32px;
-}
-
-/* ===== Таблица ===== */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+body.dark-mode .quiz-app {
+    background: rgba(30, 41, 59, 0.85);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
-th {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 16px 10px;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.quiz-header {
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+body.dark-mode .quiz-header {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
-td {
-    padding: 14px 10px;
-    text-align: center;
-    font-size: 15px;
-    color: #2c3e50;
-    border-bottom: 1px solid #eef1f5;
-    transition: all 0.2s ease;
-}
-
-/* Номер урока */
-.num {
-    font-weight: bold;
-    color: #667eea;
-    background: #f8f9ff;
-    width: 60px;
-}
-
-/* Зебра — чередование строк */
-tbody tr:nth-child(even) td:not(.num) {
-    background: #fafbfe;
-}
-
-/* Ховер — строка подсвечивается */
-tbody tr:hover td {
-    background: #f0f4ff;
-    transform: scale(1.01);
-}
-
-
-/* ===== Сегодняшний день ===== */
-th.today {
-    background: linear-gradient(135deg, #f857a6, #ff5858) !important;
-    position: relative;
-}
-
-th.today::after {
-    content: '★ сегодня';
-    position: absolute;
-    bottom: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 11px;
-    color: #ff5858;
-    white-space: nowrap;
-}
-
-td.today {
-    background: #fff5f7 !important;
-    font-weight: 600;
-}
-
-/* ===== Адаптив для телефонов ===== */
-@media (max-width: 700px) {
-    body {
-        padding: 15px 8px;
-    }
-
-    .container {
-        padding: 15px;
-        border-radius: 14px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    th,
-    td {
-        padding: 8px 4px;
-        font-size: 12px;
-    }
-
-    .num {
-        width: 35px;
-    }
-}
-
-/* ===== Заголовок звонков — как у "Расписание уроков" ===== */
-.bells-title {
-    text-align: center;
-    color: #2c3e50;
-    font-family: inherit;
-    /* тот же шрифт, что у h1 */
-    font-size: 32px;
-    /* как у h1 */
-    font-weight: bold;
-    margin: 40px 0 20px;
-    letter-spacing: normal;
-}
-
-/* ===== Таблица звонков ===== */
-.bells {
-    width: auto;
-    /* не растягивать */
-    max-width: 600px;
-    /* ограничить ширину */
-    margin: 0 auto;
-    /* центрировать */
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    font-family: inherit;
-}
-
-.bells th {
-    background: linear-gradient(135deg, #f857a6, #ff5858);
-    color: white;
-    padding: 12px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
-.bells td {
-    padding: 12px;
-    text-align: center;
-    font-size: 15px;
-    color: #2c3e50;
-    border-bottom: 1px solid #eef1f5;
-    background: #fff;
-}
-
-.bells td:first-child {
-    font-weight: bold;
-    color: #667eea;
-    background: #f8f9ff;
-    width: 70px;
-}
-
-.bells td:nth-child(2) {
-    color: #2e7d32;
-    font-weight: 600;
-}
-
-.bells td:nth-child(3) {
-    color: #c62828;
-    font-weight: 600;
-}
-
-.bells tbody tr:hover td {
-    background: #fff5f7;
-}
-
-.bells tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* ===== Контейнер для двух таблиц звонков ===== */
-.bells-wrapper {
+.header-top {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 40px 0 20px;
-}
-
-.bells-col {
-    flex: 0 1 380px;
-    min-width: 280px;
-}
-
-.bells-title {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 22px;
-    font-weight: bold;
-    margin: 0 0 15px;
-}
-
-.bells {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-@media (max-width: 700px) {
-    .bells-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .bells-col {
-        width: 100%;
-        max-width: 380px;
-    }
-}
-
-td {
-    padding: 16px 10px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    /* ← ЖИРНЫЙ шрифт */
-    color: #1a252f;
-    /* ← потемнее цвет */
-    border-bottom: 1px solid #eef1f5;
-    transition: all 0.2s ease;
-    letter-spacing: 0.2px;
-}
-
-table td {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-    z-index: 1;
-}
-
-table td:hover {
-    transform: translateY(-5px) scale(1.06);
-    z-index: 10;
-}
-
-table td {
-    transition:
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.4s ease,
-        border-radius 0.4s ease,
-        background 0.4s ease;
-    position: relative;
-    z-index: 1;
-    border-radius: 6px;
-}
-
-table td:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow:
-        0 12px 25px rgba(102, 126, 234, 0.2),
-        0 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 14px;
-    z-index: 10;
-}
-
-/* ===== Кнопка переключения темы ===== */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    z-index: 999;
+    margin-bottom: 20px;
 }
+.header-top h1 { margin: 0; font-size: 22px; font-weight: 800; }
 
-.theme-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
-    background: rgba(255, 255, 255, 0.4);
-}
-
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-/* По умолчанию показываем луну, солнце спрятано */
-/* ═══════════════════════════════════════════ */
-/* 🌙🌞 Стильный переключатель темы             */
-/* ═══════════════════════════════════════════ */
-
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    z-index: 999;
-    transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.05);
-}
-
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-/* ───── Дорожка переключателя ───── */
-.toggle-track {
-    display: block;
+.theme-switch {
     position: relative;
-    width: 56px;
-    height: 30px;
-    background: linear-gradient(135deg, #87ceeb, #4a90e2);
-    border-radius: 30px;
-    box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.15),
-        0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: background 0.4s ease;
+    width: 64px; height: 32px;
+    background: #cbd5e1; border-radius: 50px; border: none;
+    cursor: pointer; display: flex; align-items: center; padding: 0 4px;
+    box-sizing: border-box; transition: background 0.3s;
 }
-
-/* ───── Кругляшок (ползунок) ───── */
-.toggle-thumb {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-        background 0.4s ease;
-    overflow: hidden;
-}
-
-/* Иконки */
-.icon {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    transition: opacity 0.3s ease, transform 0.4s ease;
-    color: #f59e0b;
-    /* оранжевый для солнца */
-}
-
-/* По умолчанию — только солнце видно */
-.icon-sun {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-}
-
-.icon-moon {
-    opacity: 0;
-    transform: rotate(180deg) scale(0.5);
-    color: #4a5dd4;
-    /* синий для луны */
-}
-
-/* ───── ТЁМНАЯ ТЕМА ───── */
-
-/* Фон дорожки — тёмный */
-body.dark .toggle-track {
-    background: linear-gradient(135deg, #1e2a47, #2a3a55);
-    box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.5),
-        0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Ползунок — вправо */
-body.dark .toggle-thumb {
-    transform: translateX(26px);
-    background: #e8eaf6;
-}
-
-/* Луна — видна, солнце — нет */
-body.dark .icon-sun {
-    opacity: 0;
-    transform: rotate(-180deg) scale(0.5);
-}
-
-body.dark .icon-moon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-    color: #fbbf24;
-    /* жёлтый для луны в тёмной теме */
-}
-
-/* ───── 📱 На телефоне — меньше ───── */
-@media (max-width: 700px) {
-    .theme-toggle {
-        top: 12px;
-        right: 12px;
-    }
-
-    .toggle-track {
-        width: 48px;
-        height: 26px;
-    }
-
-    .toggle-thumb {
-        width: 20px;
-        height: 20px;
-        top: 3px;
-        left: 3px;
-    }
-
-    body.dark .toggle-thumb {
-        transform: translateX(22px);
-    }
-
-    .icon {
-        width: 12px;
-        height: 12px;
-    }
-}
-
-/* ===== ТЁМНАЯ ТЕМА ===== */
-
-/* Плавный переход всех цветов */
-body,
-.container,
-table,
-th,
-td,
-.bells,
-.bells td,
-.bells th,
-.bells-title,
-h1,
-h2 {
-    transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
-}
-
-/* Фон страницы */
-body.dark {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-}
-
-/* Карточка / контейнер */
-body.dark .container {
-    background: #1e2a47;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-/* Заголовки */
-body.dark h1,
-body.dark .bells-title {
-    color: #e8eaf6;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* Ячейки таблицы уроков */
-body.dark td {
-    background: #24344d !important;
-    color: #e8eaf6 !important;
-    border-bottom: 1px solid #34495e;
-}
-
-/* Номер урока */
-body.dark .num {
-    background: #2a3a55 !important;
-    color: #8b9eff !important;
-}
-
-/* Заголовки таблиц */
-body.dark th {
-    background: linear-gradient(135deg, #3a3a6a, #4a2a5a);
-    color: #fff;
-}
-
-/* Череда строк в тёмной теме */
-body.dark tbody tr:nth-child(even) td:not(.num) {
-    background: #2a3a55 !important;
-}
-
-/* Пустые ячейки */
-body.dark .empty {
-    background: #1e2a47 !important;
-    color: #4a5a75;
-}
-
-/* Ховер в тёмной теме */
-body.dark tbody tr:hover td {
-    background: #2f4260 !important;
-}
-
-/* ===== Цвета предметов (только текст) ===== */
-.math,
-.geom {
-    color: #1565c0;
-    font-weight: 600;
-}
-
-.phys {
-    color: #6a1b9a;
-}
-
-.chem {
-    color: #e65100;
-}
-
-.bio {
-    color: #2e7d32;
-}
-
-.geo {
-    color: #f57f17;
-}
-
-.info {
-    color: #00695c;
-}
-
-.hist,
-.social {
-    color: #bf360c;
-}
-
-.rus,
-.lit {
-    color: #ad1457;
-}
-
-.eng {
-    color: #4527a0;
-}
-
-.sport {
-    color: #1b5e20;
-    font-weight: 600;
-}
-
-.work {
-    color: #4e342e;
-}
-
-.obzr {
-    color: #283593;
-}
-
-.prob {
-    color: #0277bd;
-}
-
-/* Таблица звонков */
-body.dark .bells td {
-    background: #24344d !important;
-    color: #e8eaf6 !important;
-    border-bottom: 1px solid #34495e;
-}
-
-body.dark .bells td:first-child {
-    background: #2a3a55 !important;
-    color: #8b9eff !important;
-}
-
-body.dark .bells th {
-    background: linear-gradient(135deg, #3a3a6a, #4a2a5a);
-}
-
-/* Ховер кнопки в тёмной теме */
-body.dark .theme-toggle {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-body.dark .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-/* ===== ⭐ Подсветка сегодняшнего дня ===== */
-th.today {
-    background: linear-gradient(135deg, #f857a6, #ff5858) !important;
-    position: relative;
-    color: #fff !important;
-}
-
-th.today::after {
-    content: '★';
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    font-size: 14px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.6;
-        transform: scale(1.2);
-    }
-}
-
-td.today-col {
-    background: rgba(248, 87, 166, 0.08) !important;
-}
-
-body.dark th.today {
-    background: linear-gradient(135deg, #a0335a, #c44545) !important;
-}
-
-body.dark td.today-col {
-    background: rgba(248, 87, 166, 0.12) !important;
-}
-
-/* ===== 🔴 Подсветка текущего урока ===== */
-tr.current-lesson td {
-    background: linear-gradient(90deg, #d4edda, #c3e6cb) !important;
-    font-weight: 700 !important;
-    position: relative;
-}
-
-tr.current-lesson td:first-child::before {
-    content: '▶';
-    position: absolute;
-    left: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #28a745;
-    font-size: 12px;
-    animation: pulse 1.5s infinite;
-}
-
-body.dark tr.current-lesson td {
-    background: linear-gradient(90deg, #1e4a2a, #234a2a) !important;
-    color: #90d995 !important;
-}
-
-body.dark tr.current-lesson td:first-child::before {
-    color: #90d995;
-}
-
-/* Прошедшие уроки — приглушены */
-tr.past-lesson td {
-    opacity: 0.7;
-}
-
-/* ===== 💬 Всплывающая подсказка при наведении ===== */
-.tooltip {
-    position: fixed;
-    background: #fff;
-    padding: 12px 16px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    color: #2c3e50;
-    pointer-events: none;
-    /* мышка «проходит сквозь» */
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 9999;
-    min-width: 180px;
-    font-family: inherit;
-}
-
-.tooltip.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.tooltip-subject {
-    font-size: 16px;
-    font-weight: 700;
-    color: #667eea;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #eef1f5;
-}
-
-.tooltip-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    padding: 3px 0;
-    font-size: 13px;
-}
-
-.tooltip-label {
-    font-size: 14px;
-}
-
-.tooltip-row span:last-child {
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-/* Тёмная тема */
-body.dark .tooltip {
-    background: #1e2a47;
-    color: #e8eaf6;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-body.dark .tooltip-subject {
-    color: #8b9eff;
-    border-bottom-color: #34495e;
-}
-
-body.dark .tooltip-row span:last-child {
-    color: #e8eaf6;
-}
-
-/* Курсор-указатель на предметах */
-td[data-room] {
-    cursor: help;
-}
-
-/* Кликабельные предметы */
-td[data-room] {
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-radius 0.2s ease;
-}
-
-td[data-room]:active {
-    transform: scale(0.97);
-}
-
-.tooltip {
-    transition: opacity 0.15s ease, transform 0.15s ease;
-}
-
-/* ===== Фиксы для тёмной темы ===== */
-
-/* Фон таблицы в тёмной теме */
-body.dark table {
-    background: #1e2a47 !important;
-}
-
-/* Пустые ячейки в прошлых уроках не должны затемняться */
-tr.past-lesson td.empty,
-tr.past-lesson td:empty {
-    opacity: 1 !important;
-}
-
-/* ============================================ */
-/* ЕДИНЫЙ СТИЛЬ ПРЕДМЕТОВ — плотный, без цветов */
-/* ============================================ */
-
-/* Все предметы в таблице — один цвет, жирный */
-#schedule-table tbody td {
-    color: #000000 !important;
-    /* ← чистый ЧЁРНЫЙ */
-    font-weight: 800 !important;
-    /* ← ЖИРНЕЕ */
-    font-size: 16px !important;
-    letter-spacing: 0.3px;
-    background: #ffffff !important;
-}
-
-/* Номер урока — чуть другого цвета, но тоже жирный */
-#schedule-table tbody td:first-child {
-    color: #4a5dd4 !important;
-    font-weight: 800 !important;
-    font-size: 17px !important;
-    background: #f8f9ff !important;
-}
-
-/* Пустые ячейки — серые, без жирности */
-#schedule-table tbody td.empty {
-    color: #cccccc !important;
-    font-weight: 400 !important;
-    background: #fafafa !important;
-}
-
-/* ══════════════════════════════════════════ */
-/* ТЁМНАЯ ТЕМА — тот же стиль, но тёмный фон */
-/* ══════════════════════════════════════════ */
-
-body.dark #schedule-table tbody td {
-    color: #e8eaf6 !important;
-    background: #24344d !important;
-    font-weight: 700 !important;
-}
-
-body.dark #schedule-table tbody td:first-child {
-    color: #8b9eff !important;
-    background: #2a3a55 !important;
-    font-weight: 800 !important;
-}
-
-body.dark #schedule-table tbody td.empty {
-    color: #4a5a75 !important;
-    background: #1a2438 !important;
-    font-weight: 400 !important;
-}
-
-/* ═══════════════════════════════════════════ */
-/* ФИНАЛ: чёрный жирный шрифт предметов        */
-/* ═══════════════════════════════════════════ */
-
-/* СВЕТЛАЯ ТЕМА — чёрный жирный текст */
-#schedule-table tbody td {
-    color: #000000 !important;
-    font-weight: 800 !important;
-    font-size: 16px !important;
-    background: #ffffff !important;
-    letter-spacing: 0.3px;
-}
-
-/* Номер урока — тоже чёрный и жирнее */
-#schedule-table tbody td:first-child {
-    color: #000000 !important;
-    font-weight: 900 !important;
-    font-size: 17px !important;
-    background: #f8f9ff !important;
-}
-
-/* Пустые ячейки — серые, без жирности */
-#schedule-table tbody td.empty {
-    color: #cccccc !important;
-    font-weight: 400 !important;
-    background: #fafafa !important;
-}
-
-/* ТЁМНАЯ ТЕМА — белый жирный текст */
-body.dark #schedule-table tbody td {
-    color: #e8eaf6 !important;
-    background: #24344d !important;
-    font-weight: 800 !important;
-}
-
-body.dark #schedule-table tbody td:first-child {
-    color: #8b9eff !important;
-    background: #2a3a55 !important;
-    font-weight: 900 !important;
-}
-
-body.dark #schedule-table tbody td.empty {
-    color: #4a5a75 !important;
-    background: #1a2438 !important;
-    font-weight: 400 !important;
-}
-
-/* ═══════════════════════════════════════════ */
-/* Пустые ячейки — как все остальные           */
-/* ═══════════════════════════════════════════ */
-
-/* Светлая тема: пустые ячейки — БЕЛЫЕ, как все */
-#schedule-table tbody td.empty {
-    background: #ffffff !important;
-    color: #cccccc !important;
-    font-weight: 400 !important;
-}
-
-/* Тёмная тема: пустые — как все тёмные */
-body.dark #schedule-table tbody td.empty {
-    background: #24344d !important;
-    color: #4a5a75 !important;
-    font-weight: 400 !important;
-}
-
-/* ═══════════════════════════════════════════ */
-/* Шрифт в звонках — чуть жирнее               */
-/* ═══════════════════════════════════════════ */
-
-/* Светлая тема — обычные ячейки звонков */
-.bells tbody td {
-    font-weight: 600 !important;
-    font-size: 15px !important;
-}
-
-/* Номер урока — жирнее */
-.bells tbody td:first-child {
-    font-weight: 800 !important;
-}
-
-/* Время начала — жирнее */
-.bells tbody td:nth-child(2) {
-    font-weight: 700 !important;
-}
-
-/* Время конца — жирнее */
-.bells tbody td:nth-child(3) {
-    font-weight: 700 !important;
-}
-
-/* Заголовки звонков — тоже чуть жирнее */
-.bells thead th {
-    font-weight: 800 !important;
-}
-
-/* Тёмная тема — то же самое */
-body.dark .bells tbody td {
-    font-weight: 600 !important;
-}
-
-body.dark .bells tbody td:first-child {
-    font-weight: 800 !important;
-}
-
-body.dark .bells tbody td:nth-child(2),
-body.dark .bells tbody td:nth-child(3) {
-    font-weight: 700 !important;
+body.dark-mode .theme-switch { background: #334155; }
+.theme-switch::after {
+    content: '☀️'; position: absolute; left: 4px;
+    width: 24px; height: 24px; background: #ffffff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; transition: transform 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+body.dark-mode .theme-switch::after { content: '🌙'; transform: translateX(32px); background: #1e293b; }
+.theme-switch span { display: none; }
 
-body.dark .bells thead th {
-    font-weight: 800 !important;
+.progress-container {
+    height: 8px; background: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden; margin-bottom: 10px;
 }
-
-.bells tbody td:nth-child(2),
-.bells tbody td:nth-child(3) {
-    font-weight: 800 !important;
-    /* было 700 */
-}
-
-/* ═══════════════════════════════════════════ */
-/* ✨ ТЕНИ НА ТЕКСТАХ — предметы, цифры, звонки */
-/* ═══════════════════════════════════════════ */
-
-/* ───── Светлая тема — мягкая тень ───── */
-
-/* Заголовок страницы */
-h1 {
-    text-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.8),
-        0 2px 4px rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Заголовки таблицы (УРОК / ПОНЕДЕЛЬНИК...) */
-#schedule-table thead th {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35) !important;
-}
-
-/* Предметы и номера уроков */
-#schedule-table tbody td {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Номера уроков — тень посильнее */
-#schedule-table tbody td:first-child {
-    text-shadow: 0 1px 3px rgba(74, 93, 212, 0.25) !important;
-}
-
-/* Заголовки звонков (УРОК / НАЧАЛО / КОНЕЦ) */
-.bells thead th {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35) !important;
-}
-
-/* Данные в звонках (цифры, время) */
-.bells tbody td {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Подсказка при наведении (предмет) */
-.tooltip-subject {
-    text-shadow: 0 1px 2px rgba(102, 126, 234, 0.3) !important;
-}
-
-/* ───── 🌙 Тёмная тема — тень ярче ───── */
-
-/* Заголовок в тёмной теме */
-body.dark h1 {
-    text-shadow:
-        0 0 20px rgba(139, 158, 255, 0.4),
-        0 2px 8px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Заголовки таблицы в тёмной */
-body.dark #schedule-table thead th {
-    text-shadow:
-        0 0 12px rgba(139, 158, 255, 0.5),
-        0 2px 6px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Предметы в тёмной — лёгкое свечение */
-body.dark #schedule-table tbody td {
-    text-shadow:
-        0 0 8px rgba(139, 158, 255, 0.25),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Номера уроков в тёмной — сильнее светятся */
-body.dark #schedule-table tbody td:first-child {
-    text-shadow:
-        0 0 10px rgba(139, 158, 255, 0.6),
-        0 1px 3px rgba(0, 0, 0, 0.8) !important;
-}
-
-/* Заголовки звонков в тёмной */
-body.dark .bells thead th {
-    text-shadow:
-        0 0 12px rgba(255, 100, 150, 0.5),
-        0 2px 6px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Данные в звонках в тёмной */
-body.dark .bells tbody td {
-    text-shadow:
-        0 0 6px rgba(139, 158, 255, 0.2),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
-}
-
-#schedule-table tbody td {
-    text-shadow:
-        0 1px 0 #ffffff,
-        0 2px 0 #dddddd,
-        0 3px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-#schedule-table tbody td {
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* 🌌 Космическая тёмная дорожка */
-body.dark .toggle-track {
-    background: linear-gradient(135deg, #1a1a2e, #3a3a6a) !important;
-    box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.5),
-        0 2px 8px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* ═══════════════════════════════════════════ */
-/* ✨ Белое свечение текста в тёмной теме       */
-/* ═══════════════════════════════════════════ */
-
-/* Предметы в таблице — мягкое белое свечение */
-body.dark #schedule-table tbody td {
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.4),
-        0 0 15px rgba(255, 255, 255, 0.2),
-        0 1px 2px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Номера уроков — свечение чуть сильнее (синеватое) */
-body.dark #schedule-table tbody td:first-child {
-    text-shadow:
-        0 0 10px rgba(139, 158, 255, 0.7),
-        0 0 20px rgba(139, 158, 255, 0.4),
-        0 1px 2px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Заголовки таблицы (УРОК / ПОНЕДЕЛЬНИК...) */
-body.dark #schedule-table thead th {
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.5),
-        0 0 20px rgba(255, 255, 255, 0.25),
-        0 1px 3px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Заголовок страницы «Расписание уроков» */
-body.dark h1 {
-    text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.5),
-        0 0 30px rgba(255, 255, 255, 0.25),
-        0 2px 6px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Заголовки звонков (УРОК / НАЧАЛО / КОНЕЦ) */
-body.dark .bells thead th {
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.5),
-        0 0 20px rgba(255, 255, 255, 0.25),
-        0 1px 3px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Данные в звонках (цифры, время) */
-body.dark .bells tbody td {
-    text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.35),
-        0 0 12px rgba(255, 255, 255, 0.15),
-        0 1px 2px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Заголовки «🔔 Звонки — Понедельник 🔔» */
-body.dark .bells-title {
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.4),
-        0 0 24px rgba(255, 255, 255, 0.2),
-        0 1px 3px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Подсказка при наведении — предмет */
-body.dark .tooltip-subject {
-    text-shadow:
-        0 0 8px rgba(246, 244, 244, 0.751),
-        0 0 15px rgba(255, 255, 255, 0.2) !important;
-}
-
-/* ═══════════════════════════════════════════ */
-/* ✨ ФИНАЛ — яркое свечение в тёмной теме      */
-/* ═══════════════════════════════════════════ */
-
-/* Предметы — ярко-белые с сильным свечением */
-body.dark #schedule-table tbody td {
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    background: #2a3a55 !important;
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 1),
-        0 0 25px rgba(255, 255, 255, 0.7),
-        0 0 40px rgba(255, 255, 255, 0.4),
-        0 0 60px rgba(255, 255, 255, 0.15),
-        0 1px 2px rgba(0, 0, 0, 0.9) !important;
-    -webkit-font-smoothing: antialiased;
+body.dark-mode .progress-container { background: rgba(255,255,255,0.05); }
+.progress-bar {
+    height: 100%; background: linear-gradient(90deg, #6366f1, #a855f7); width: 0%; transition: width 0.4s ease;
 }
-
-/* Номера уроков — голубые */
-body.dark #schedule-table tbody td:first-child {
-    color: #a8b8ff !important;
-    font-weight: 900 !important;
-    background: #324266 !important;
-    text-shadow:
-        0 0 12px rgba(139, 158, 255, 1),
-        0 0 25px rgba(139, 158, 255, 0.6),
-        0 0 40px rgba(139, 158, 255, 0.3),
-        0 1px 2px rgba(0, 0, 0, 0.8) !important;
+.progress-text {
+    font-size: 13px; font-weight: 700; display: block; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7;
 }
 
-/* Заголовки таблицы */
-body.dark #schedule-table thead th {
-    color: #ffffff !important;
-    font-weight: 800 !important;
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.9),
-        0 0 25px rgba(255, 255, 255, 0.5),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
-}
+.quiz-card { padding: 35px; }
 
-/* Заголовок страницы */
-body.dark h1 {
-    color: #ffffff !important;
-    text-shadow:
-        0 0 20px rgba(255, 255, 255, 1),
-        0 0 40px rgba(255, 255, 255, 0.6),
-        0 0 60px rgba(255, 255, 255, 0.3),
-        0 2px 6px rgba(0, 0, 0, 0.6) !important;
+.theory-box {
+    background: rgba(99, 102, 241, 0.05); border: 2px solid rgba(99, 102, 241, 0.1);
+    border-radius: 16px; padding: 24px; margin-bottom: 30px; display: flex; gap: 15px;
 }
+body.dark-mode .theory-box { background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.2); }
 
-/* Звонки — заголовки */
-body.dark .bells-title {
-    color: #ffffff !important;
-    text-shadow:
-        0 0 15px rgba(255, 255, 255, 0.8),
-        0 0 30px rgba(255, 255, 255, 0.4) !important;
-}
+.theory-content h3 { color: #4f46e5; margin: 0 0 12px; font-size: 18px; font-weight: 800; }
+body.dark-mode .theory-content h3 { color: #818cf8; }
 
-/* Звонки — данные */
-body.dark .bells tbody td {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.7),
-        0 0 16px rgba(255, 255, 255, 0.35) !important;
-}
+.simple-explain { font-size: 16px; line-height: 1.7; margin-bottom: 15px; font-weight: 500; }
 
-/* Звонки — номера уроков */
-body.dark .bells tbody td:first-child {
-    color: #a8b8ff !important;
-    font-weight: 900 !important;
-    text-shadow:
-        0 0 10px rgba(139, 158, 255, 1),
-        0 0 20px rgba(139, 158, 255, 0.6),
-        0 0 30px rgba(139, 158, 255, 0.3) !important;
+.official-rule {
+    background: rgba(255,255,255,0.5); border-left: 4px solid #6366f1;
+    border-radius: 0 8px 8px 0; padding: 15px; font-size: 15px; line-height: 1.6; margin-bottom: 15px;
 }
+body.dark-mode .official-rule { background: rgba(0,0,0,0.2); border-left-color: #818cf8; }
 
-/* Звонки — заголовки колонок */
-body.dark .bells thead th {
-    color: #ffffff !important;
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.9),
-        0 0 24px rgba(255, 255, 255, 0.5),
-        0 1px 3px rgba(0, 0, 0, 0.7) !important;
+.example-box {
+    background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e;
+    border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 15px; line-height: 1.6; margin-bottom: 20px;
 }
-/* ═══════════════════════════════════════════ */
-/* 🎯 ПЛАВНЫЕ И КРАСИВЫЕ ХОВЕРЫ НА ЯЧЕЙКАХ      */
-/* ═══════════════════════════════════════════ */
+body.dark-mode .example-box { background: rgba(34, 197, 94, 0.15); border-left-color: #4ade80; }
 
-/* Ячейки — базовая подготовка */
-#schedule-table tbody td {
-    position: relative;
-    z-index: 1;
-    border-radius: 6px;
-    transition: 
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        border-radius 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        background 0.4s ease;
-    will-change: transform, box-shadow;
-    transform: translateZ(0);       /* GPU-ускорение */
-    backface-visibility: hidden;
+.glossary { display: flex; flex-wrap: wrap; gap: 10px; }
+.glossary-term {
+    background: #ffffff; border: 2px solid #cbd5e1; padding: 8px 16px;
+    border-radius: 20px; font-size: 13px; color: #4f46e5; cursor: pointer;
+    font-weight: 600; transition: 0.2s;
 }
+body.dark-mode .glossary-term { background: #0f172a; border-color: #334155; color: #818cf8; }
+.glossary-term:hover { border-color: #818cf8; }
 
-/* Наведение — мягко поднимается, чуть увеличивается */
-#schedule-table tbody td:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 
-        0 8px 20px rgba(102, 126, 234, 0.18),
-        0 4px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    z-index: 10;
+.custom-tooltip {
+    display: none; background: #ffffff; border-radius: 12px; padding: 20px; margin-top: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;
 }
+body.dark-mode .custom-tooltip { background: #0f172a; border-color: #334155; }
+.custom-tooltip.show { display: block; animation: slideDown 0.3s ease; }
+.tooltip-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 800; color: #4f46e5; }
+#closeTooltip { background: none; border: none; cursor: pointer; font-size: 18px; color: #94a3b8; }
 
-/* ───── Тёмная тема — своя тень ───── */
-body.dark #schedule-table tbody td:hover {
-    box-shadow: 
-        0 8px 25px rgba(139, 158, 255, 0.25),
-        0 4px 12px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(139, 200, 255, 0.15);
+h2#questionText { font-size: 20px; font-weight: 800; line-height: 1.5; margin-bottom: 25px; }
+
+.options { display: flex; flex-direction: column; gap: 12px; }
+.option-btn {
+    background: #ffffff; border: 2px solid #e2e8f0; padding: 18px 24px;
+    border-radius: 12px; font-size: 16px; text-align: left; cursor: pointer;
+    transition: all 0.2s; font-family: inherit; font-weight: 500; color: #1e293b;
 }
+body.dark-mode .option-btn { background: #0f172a; border-color: #334155; color: #f8fafc; }
+.option-btn:hover:not(.disabled) { border-color: #6366f1; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99,102,241,0.15); }
 
-/* ───── Звонки — такие же плавные ───── */
-.bells tbody td {
-    position: relative;
-    z-index: 1;
-    transition: 
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        background 0.4s ease;
-    will-change: transform;
-    transform: translateZ(0);
-}
+.option-btn.selected { border-color: #6366f1 !important; background: rgba(99, 102, 241, 0.1) !important; }
+.option-btn.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; font-weight: 700; }
+body.dark-mode .option-btn.correct { background: rgba(34, 197, 94, 0.2) !important; color: #4ade80 !important; }
+.option-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+body.dark-mode .option-btn.wrong { background: rgba(239, 68, 68, 0.2) !important; color: #f87171 !important; }
 
-.bells tbody td:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-        0 6px 16px rgba(102, 126, 234, 0.15),
-        0 3px 8px rgba(0, 0, 0, 0.06);
-    z-index: 10;
+.input-container { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.text-input {
+    width: 100%; box-sizing: border-box; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0;
+    font-size: 18px; font-family: inherit; outline: none; background: #ffffff; transition: 0.2s;
 }
+body.dark-mode .text-input { background: #0f172a; border-color: #334155; color: #fff; }
+.text-input:focus { border-color: #6366f1; box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); }
+.text-input.correct { border-color: #22c55e !important; background: #dcfce7 !important; color: #166534 !important; }
+body.dark-mode .text-input.correct { background: rgba(34, 197, 94, 0.2) !important; color: #4ade80 !important; }
+.text-input.wrong { border-color: #ef4444 !important; background: #fee2e2 !important; color: #991b1b !important; }
+body.dark-mode .text-input.wrong { background: rgba(239, 68, 68, 0.2) !important; color: #f87171 !important; }
 
-body.dark .bells tbody td:hover {
-    box-shadow: 
-        0 6px 20px rgba(139, 158, 255, 0.2),
-        0 3px 10px rgba(0, 0, 0, 0.35);
-}
-/* Плавность для звонков */
-.bells td {
-    transition: 
-        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        background 0.3s ease !important;
+.submit-btn {
+    background: #6366f1; color: white; border: none; padding: 18px; border-radius: 12px;
+    font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.2s; font-family: inherit;
 }
+.submit-btn:hover { background: #4f46e5; }
+
+.play-audio-btn {
+    background: #8b5cf6; color: white; border: none; padding: 14px 24px; border-radius: 12px;
+    font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s; width: 100%; margin-bottom: 10px;
+}
+.play-audio-btn:hover { background: #7c3aed; }
+
+.explanation { margin-top: 20px; padding: 20px; border-radius: 12px; display: none; font-size: 15px; line-height: 1.6; }
+.explanation.show { display: block; animation: slideDown 0.3s ease; }
+.explanation.correct-bg { background: #dcfce7; color: #166534; border: 1px solid #22c55e; }
+body.dark-mode .explanation.correct-bg { background: rgba(34, 197, 94, 0.1); color: #4ade80; border-color: rgba(34, 197, 94, 0.3); }
+.explanation.wrong-bg { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+body.dark-mode .explanation.wrong-bg { background: rgba(239, 68, 68, 0.1); color: #f87171; border-color: rgba(239, 68, 68, 0.3); }
+
+.next-btn {
+    margin-top: 25px; width: 100%; background: #6366f1; color: white; border: none;
+    padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer;
+    display: none; transition: background 0.2s;
+}
+.next-btn:hover { background: #4f46e5; }
+.next-btn.show { display: block; animation: slideDown 0.3s ease; }
+
+.results-screen {
+    padding: 60px 40px; text-align: center; display: none;
+    background: linear-gradient(135deg, #f5f7ff 0%, #e0e7ff 100%);
+}
+body.dark-mode .results-screen { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+.results-screen h2 { font-size: 34px; margin-bottom: 20px; font-weight: 800; color: #1e293b; }
+body.dark-mode .results-screen h2 { color: #f8fafc; }
+
+.score-circle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: #ffffff; font-size: 36px; font-weight: 900; margin: 20px auto 30px;
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4); border: 4px solid #ffffff;
+}
+body.dark-mode .score-circle { border-color: #334155; }
+
+.grade-box { margin-bottom: 40px; }
+.grade-box h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 15px; color: #64748b; }
+body.dark-mode .grade-box h3 { color: #94a3b8; }
+
+.grade-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 90px; height: 90px; border-radius: 50%; font-size: 44px; font-weight: 900;
+    color: #ffffff; border: 3px solid #ffffff;
+}
+body.dark-mode .grade-mark { border-color: #334155; }
+.grade-5 { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4); }
+.grade-4 { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4); }
+.grade-3 { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4); }
+.grade-2 { background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4); }
+
+.feedback-box {
+    background: rgba(255, 255, 255, 0.8); border-radius: 16px; padding: 25px;
+    text-align: left; margin-bottom: 35px; border: 1px solid rgba(255, 255, 255, 0.9);
+}
+body.dark-mode .feedback-box { background: rgba(30, 41, 59, 0.8); border-color: rgba(255, 255, 255, 0.05); }
+.feedback-box h3 { margin-top: 0; color: #ea580c; font-size: 18px; display: flex; align-items: center; gap: 10px; }
+body.dark-mode .feedback-box h3 { color: #fdba74; }
+.feedback-box ul { margin: 0; padding-left: 20px; line-height: 1.7; font-size: 15px; color: #475569; }
+body.dark-mode .feedback-box ul { color: #cbd5e1; }
+
+.restart-btn {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #ffffff; border: none;
+    padding: 18px 45px; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer;
+    transition: all 0.3s; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+.restart-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5); }
+
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
