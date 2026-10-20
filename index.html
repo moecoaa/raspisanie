@@ -11,15 +11,35 @@
         <div class="quiz-header">
             <div class="header-top">
                 <h1>🎓 Тренажёр по русскому</h1>
-                <button id="themeToggle" class="theme-switch">
-                    <span class="sun"></span><span class="moon"></span>
-                </button>
+                <button id="themeToggle" class="theme-switch" aria-label="Переключить тему">
+    <div class="toggle-thumb">
+        <!-- Иконка Солнца (SVG) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Иконка Луны (SVG) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </div>
+</button>
             </div>
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
             <span class="progress-text" id="progressText">Вопрос 1 из 20</span>
         </div>
+
+        <!-- Панель навигации по вопросам -->
+        <div class="question-nav" id="questionNav"></div>
 
         <div class="quiz-card" id="quizContent">
             <div class="theory-box">
@@ -41,21 +61,28 @@
 
             <h2 id="questionText">Загрузка...</h2>
             
+            <!-- Кнопки для тестов с выбором вариантов -->
             <div class="options" id="optionsContainer"></div>
-            <button class="submit-btn" id="checkOptionsBtn" style="display: none; margin-top: 15px;">Проверить ответы</button>
             
+            <!-- Кнопки для ввода текста / аудио -->
             <div class="input-container" id="inputContainer" style="display: none;">
                 <div class="audio-control" id="audioControl" style="display: none;">
                     <button class="play-audio-btn" id="playAudioBtn">🔊 Прослушать слово</button>
                 </div>
                 <input type="text" id="textInput" class="text-input" placeholder="Впиши ответ сюда..." autocomplete="off">
-                <button class="submit-btn" id="submitBtn">Проверить</button>
             </div>
+
+            <!-- ЕДИНАЯ КНОПКА "ПРОВЕРИТЬ" -->
+            <button class="submit-btn" id="submitBtn" style="display: none;">Проверить</button>
+            
+            <!-- Кнопка для мультивыбора -->
+            <button class="submit-btn" id="checkOptionsBtn" style="display: none; margin-top: 15px;">Проверить ответы</button>
 
             <div class="explanation" id="explanationBox">
                 <p id="explanationText"></p>
             </div>
 
+            <button class="skip-btn" id="skipBtn" style="display: none;">Пропустить вопрос (вернусь позже)</button>
             <button class="next-btn" id="nextBtn">Следующий вопрос →</button>
         </div>
 
@@ -74,7 +101,6 @@
         </div>
     </div>
 
-    <!-- Подключаем скрипт -->
     <script src="script.js"></script>
 </body>
 </html>
