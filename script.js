@@ -5,9 +5,7 @@ const questions = [
         simple: "Если слово без «НЕ» не употребляется (ненавидеть, негодовать), пишется слитно. Если есть противопоставление (не друг, а враг) — раздельно.",
         theory: "НЕ пишется слитно, если слово без НЕ не используется. Также слитно, если можно подобрать синоним. Раздельно — если есть противопоставление с союзом А.",
         example: "Ненавидеть, невесёлый (грустный). Не весёлый, а грустный.",
-        glossary: [
-            { term: "Противопоставление", def: "Это когда во второй части предложения есть союз «А» или «НО», который отрицает первую часть. Например: «Он не умный, А глупый»." }
-        ],
+        glossary: [{ term: "Противопоставление", def: "Союз А или НО, который отрицает первую часть. «Он не умный, А глупый»." }],
         question: "Выбери ВСЕ варианты, где НЕ пишется СЛИТНО:",
         options: ["(не)навидеть", "(не)весёлый", "(не)друг, а враг", "(не)годовать"],
         correctIndexes: [0, 1, 3],
@@ -17,11 +15,9 @@ const questions = [
         type: "options",
         topic: "Слитное и раздельное написание НЕ",
         simple: "Если слово можно заменить синонимом без НЕ — пишем слитно. Если есть слова «далеко», «вовсе», «ничуть» — раздельно.",
-        theory: "НЕ пишется раздельно, если есть слова, усиливающие отрицание: далеко не, вовсе не, ничуть не, отнюдь не.",
+        theory: "НЕ пишется раздельно, если есть слова, усиливающие отрицание: далеко не, вовсе не, ничуть не.",
         example: "Он вовсе не умный. Это далеко не красивый поступок.",
-        glossary: [
-            { term: "Усиление отрицания", def: "Слова-магниты, которые усиливают «НЕ». Если видишь «далеко не», «вовсе не», «ничуть не» — пиши раздельно." }
-        ],
+        glossary: [{ term: "Усиление отрицания", def: "Слова «далеко не», «вовсе не» — требуют раздельного написания." }],
         question: "В каком предложении НЕ пишется РАЗДЕЛЬНО?",
         options: ["Он (не)умный, а глупый.", "Он (не)умный человек.", "Это (не)правда, а ложь.", "Он (не)ряха."],
         correctIndexes: [0, 2],
@@ -30,13 +26,10 @@ const questions = [
     {
         type: "options",
         topic: "Разделительный Ъ и Ь",
-        simple: "Ъ пишется после приставок на согласную перед Е, Ё, Ю, Я. Ь пишется в корне перед Е, Ё, Ю, Я, И.",
+        simple: "Ъ пишется после приставок на согласную перед Е, Ё, Ю, Я. Ь пишется в корне.",
         theory: "Разделительный Ъ пишется после приставок. Разделительный Ь пишется в корне.",
         example: "Съел, объявление. Вьюга, пью.",
-        glossary: [
-            { term: "Приставка", def: "Часть слова перед корнем. Например, в слове «СЪел» приставка С-, а корень -ЕЛ-." },
-            { term: "Корень", def: "Главная часть слова. В слове «вЬюга» корень -ВЬЮГ-." }
-        ],
+        glossary: [{ term: "Приставка", def: "Часть слова перед корнем (С- в слове СЪел)." }],
         question: "Выбери ВСЕ слова, где пропущен разделительный Ъ:",
         options: ["с_ел", "в_юга", "об_ём", "л_ёт"],
         correctIndexes: [0, 2],
@@ -45,13 +38,10 @@ const questions = [
     {
         type: "options",
         topic: "Правописание Н и НН",
-        simple: "В прилагательных, образованных от существительных, пишется Н, если нет суффиксов -ОНН-, -ЕНН-. Но есть слова-исключения.",
+        simple: "В прилагательных от существительных пишется Н, если нет суффиксов -ОНН-, -ЕНН-. Но есть исключения.",
         theory: "НН пишется в прилагательных с суффиксами -ОНН-, -ЕНН- и в исключениях: стеклянный, оловянный, деревянный.",
         example: "Стеклянный шар, кожаный портфель.",
-        glossary: [
-            { term: "Отымённое прилагательное", def: "Прилагательное, образованное от существительного. Например: туман -> туманный, кожа -> кожаный." },
-            { term: "Слова-исключения", def: "Слова, которые не подчиняются правилу. Их надо просто запомнить: стеклянный, оловянный, деревянный." }
-        ],
+        glossary: [{ term: "Слова-исключения", def: "Стеклянный, оловянный, деревянный — всегда с двумя Н." }],
         question: "Выбери ВСЕ слова, где пишется НН:",
         options: ["кожа_ый", "деревя_ый", "серебря_ый", "стекля_ый"],
         correctIndexes: [1, 3],
@@ -63,10 +53,7 @@ const questions = [
         simple: "В ССП две равноправные части. Запятая ставится, если нет общего второстепенного члена.",
         theory: "Запятая ставится между частями ССП, если они не соединены общим второстепенным членом.",
         example: "Ветер стих, и на небе показалось солнце. В саду пахло яблоками и пели птицы.",
-        glossary: [
-            { term: "Грамматическая основа", def: "Подлежащее + сказуемое. В предложении «Ветер стих» основа — «ветер стих»." },
-            { term: "Общий второстепенный член", def: "Слово, которое относится сразу к двум частям. Например, «В саду» (где?) поют птицы И (где?) цветут яблони. Если он есть — запятая не нужна." }
-        ],
+        glossary: [{ term: "Общий второстепенный член", def: "Слово, относящееся сразу к двум частям («В саду» поют и цветут)." }],
         question: "В каком предложении НУЖНА запятая перед союзом И?",
         options: ["В саду поют птицы и цветут яблони.", "Наступил вечер и на небе зажглись звезды.", "На столе лежат книги и тетради.", "Он устал и лёг спать."],
         correctIndexes: [1],
@@ -78,9 +65,7 @@ const questions = [
         simple: "Придаточная часть всегда выделяется запятыми. Если она внутри главной — с двух сторон.",
         theory: "Придаточное с союзом «который» выделяется запятыми с двух сторон.",
         example: "Книга, которую я прочитал вчера, оказалась интересной.",
-        glossary: [
-            { term: "Придаточная часть", def: "Зависимая часть предложения, которая прицепляется к главной с помощью союзов (который, что, если)." }
-        ],
+        glossary: [{ term: "Придаточная часть", def: "Зависимая часть с союзами (который, что, если)." }],
         question: "Расставь запятые. Напиши цифры (без пробелов).\n\n«Солнце (1) уже село (2) и на небе (3) которое было усыпано звездами (4) показалась луна.»",
         correctAnswer: ["234"],
         explanation: "Запятые: 2, 3, 4."
@@ -91,11 +76,7 @@ const questions = [
         simple: "Причастный оборот выделяется запятыми, ТОЛЬКО если стоит ПОСЛЕ определяемого слова.",
         theory: "Причастный оборот обособляется, если стоит после определяемого слова.",
         example: "Мальчик, читающий книгу, сидел на диване.",
-        glossary: [
-            { term: "Причастие", def: "Слово, которое отвечает на вопрос «какой?» и обозначает действие. Например: читающий, играющий." },
-            { term: "Причастный оборот", def: "Причастие вместе с зависимыми словами. Например: «читающий книгу»." },
-            { term: "Определяемое слово", def: "Главное слово, к которому относится оборот. В примере «мальчик, читающий книгу» определяемое слово — мальчик." }
-        ],
+        glossary: [{ term: "Причастный оборот", def: "Причастие с зависимыми словами («читающий книгу»)." }],
         question: "В каком предложении запятая НЕ нужна?",
         options: ["Мальчик, читающий книгу, сидел на диване.", "Читающий книгу мальчик сидел на диване.", "Солнце, ярко светившее весь день, начало садиться.", "Деревья, покрытые снегом, стояли тихо."],
         correctIndexes: [1],
@@ -107,10 +88,7 @@ const questions = [
         simple: "ПРИ- означает приближение, присоединение, близость. ПРЕ- означает очень или пере-.",
         theory: "ПРИ- пишется в значении приближения, присоединения. ПРЕ- пишется в значении «очень» или «пере-».",
         example: "Пришкольный участок, преградить путь.",
-        glossary: [
-            { term: "Приближение", def: "Приехать, приплыть, прибежать (приближение к чему-то)." },
-            { term: "Присоединение", def: "Пришить, приклеить, прибить (присоединить к чему-то)." }
-        ],
+        glossary: [{ term: "Приближение", def: "Приехать, приплыть (приближение к чему-то)." }],
         question: "В каком слове приставка имеет значение «близость»?",
         options: ["пр_школьный", "пр_градить", "пр_красный", "пр_увеличить"],
         correctIndexes: [0],
@@ -122,9 +100,7 @@ const questions = [
         simple: "В бессоюзном предложении ставится тире, если вторая часть противопоставляется первой.",
         theory: "В БСП ставится тире, если содержание частей противопоставляется.",
         example: "Лето припасает — зима поедает.",
-        glossary: [
-            { term: "БСП", def: "Бессоюзное сложное предложение. В нём нет союзов (и, но, а), части соединены только по смыслу." }
-        ],
+        glossary: [{ term: "БСП", def: "Бессоюзное сложное предложение (нет союзов)." }],
         question: "В каком предложении нужно поставить ТИРЕ на месте пропуска (__)?",
         options: ["Солнце село __ и стало прохладно.", "Лето припасает __ зима поедает.", "Я знаю __ ты придешь.", "Он не пришел __ потому что заболел."],
         correctIndexes: [1],
@@ -136,9 +112,7 @@ const questions = [
         simple: "Вводные слова (к счастью, наверное) можно убрать. Они всегда выделяются запятыми.",
         theory: "Вводные слова выражают отношение говорящего. ВСЕГДА выделяются запятыми.",
         example: "Погода, к счастью, улучшилась.",
-        glossary: [
-            { term: "Вводное слово", def: "Слово, которое выражает эмоцию или уверенность. Его можно убрать, и предложение не сломается. Например: «Погода, К СЧАСТЬЮ, улучшилась»." }
-        ],
+        glossary: [{ term: "Вводное слово", def: "Выражает эмоцию. Его можно убрать («Погода улучшилась»)." }],
         question: "Выбери предложение, где запятые расставлены ВЕРНО:",
         options: ["Он, к счастью, остался жив.", "Он к счастью остался жив.", "Он к счастью, остался жив.", "Он, к счастью остался жив."],
         correctIndexes: [0],
@@ -150,9 +124,7 @@ const questions = [
         simple: "Корни -РАСТ-/-РОС-: перед СТ и Щ пишем А (растение), перед С пишем О (вырос).",
         theory: "В корнях -раст-/-ращ-/-рос- пишется А перед СТ и Щ.",
         example: "Вырос красивый цветок. Растение тянется к солнцу.",
-        glossary: [
-            { term: "Чередование", def: "Это когда буквы в корне слова меняются по определённым правилам. Например: растение / вырос." }
-        ],
+        glossary: [],
         question: "Вставь букву. Как пишется слово: р_стение? Напиши целиком.",
         correctAnswer: ["растение"],
         explanation: "Перед СТ пишем А."
@@ -174,9 +146,7 @@ const questions = [
         simple: "Если союз «и» повторяется, перед каждым «и» ставится запятая.",
         theory: "При повторяющихся союзах запятая ставится перед всеми союзами, начиная со второго.",
         example: "В саду росли и яблони, и груши.",
-        glossary: [
-            { term: "Однородные члены", def: "Слова, которые отвечают на один вопрос и делают одно действие. Например: «и яблони, И груши»." }
-        ],
+        glossary: [],
         question: "Расставь запятые. Напиши цифры без пробелов.\n\n«В лесу (1) и на лугу (2) и в поле (3) пахло весной.»",
         correctAnswer: ["2"],
         explanation: "Запятая перед вторым союзом «и» (2)."
@@ -202,13 +172,70 @@ const questions = [
         question: "Как пишется слово: (не)навидеть? Напиши целиком.",
         correctAnswer: ["ненавидеть"],
         explanation: "Без НЕ не употребляется."
+    },
+    {
+        type: "options",
+        topic: "Знаки препинания при обращении",
+        simple: "Обращение — это имя или название того, к кому обращаются. Оно всегда выделяется запятыми.",
+        theory: "Обращение не является членом предложения. Оно выделяется запятыми с одной или двух сторон.",
+        example: "Маша, иди сюда. Я люблю тебя, мама.",
+        glossary: [{ term: "Обращение", def: "Слово, называющее того, к кому обращена речь. Например: «Вася», «Дорогая мама»." }],
+        question: "В каком предложении есть пунктуационная ошибка?",
+        options: [
+            "Ребята, давайте жить дружно!",
+            "Спасибо тебе, родная земля.",
+            "Ты, Петя, молодец.",
+            "Здравствуй, осень золотая."
+        ],
+        correctIndexes: [], 
+        explanation: "В этом вопросе мы проверим твою внимательность. Все варианты верны, но самый частый вопрос: 'Где ошибка?'. Ошибки нет ни в одном. Обращение всегда выделяется. «Здравствуй, осень золотая» — верно."
+    },
+    {
+        type: "input",
+        topic: "Правописание Ь после шипящих",
+        simple: "В существительных женского рода 3 склонения после шипящих пишется Ь. В мужском роде — не пишется.",
+        theory: "Мягкий знак после шипящих на конце существительных пишется только в женском роде (мышь, ночь). В мужском (мяч, врач) и в родительном падеже множественного числа (туч) — не пишется.",
+        example: "МышЬ (ж.р.), врач (м.р.), много туч (Р.п.).",
+        glossary: [{ term: "Шипящие", def: "Буквы Ж, Ш, Ч, Щ." }],
+        question: "В каком слове нужен мягкий знак (Ь)? Напиши это слово.",
+        correctAnswer: ["мышь", "ночь", "дочь"],
+        explanation: "Правильные ответы: мышь, ночь, дочь (женский род, 3 склонение). В словах 'врач', 'мяч' — Ь не нужен."
+    },
+    {
+        type: "options",
+        topic: "Правописание корней с чередованием",
+        simple: "В корне -гар-/-гор- без ударения пишется О (гореть), под ударением — А (загар).",
+        theory: "Корни с чередованием -гар-/-гор-: под ударением пишется А, без ударения — О.",
+        example: "ЗагАр (под ударением), гОреть (без ударения).",
+        glossary: [{ term: "Чередование", def: "Изменение гласной в корне." }],
+        question: "Выбери ВСЕ слова, где пишется О:",
+        options: ["з_гар", "г_релка", "заг_р", "уг_рный"],
+        correctIndexes: [1, 3],
+        explanation: "«Горелка», «угарный» — без ударения пишем О. «Загар», «загар» — под ударением А."
+    },
+    {
+        type: "input",
+        topic: "Слитное/раздельное написание наречий",
+        simple: "Наречия с приставками пишутся слитно, если образованы от существительных с пространственным значением (вверх, вниз, вдаль).",
+        theory: "Наречия, образованные от существительных с пространственным значением, пишутся слитно (вверх, вдаль, вниз). Но если есть пояснительное слово — раздельно (в даль моря).",
+        example: "Смотреть вдаль (слитно). Смотреть в даль (чего?) моря (раздельно).",
+        glossary: [],
+        question: "В каком слове наречие пишется СЛИТНО? Напиши это слово.",
+        correctAnswer: ["вдаль", "вверх", "вниз"],
+        explanation: "Наречия с пространственным значением: вдаль, вверх, вниз — пишутся слитно."
+    },
+    {
+        type: "input",
+        topic: "Правописание -тся/-ться в глаголах",
+        simple: "Если глагол отвечает на вопрос «что делать?» (есть Ь), то пишется -ться. Если «что делает?» (нет Ь), то -тся.",
+        theory: "Мягкий знак в глаголах пишется, если глагол стоит в неопределенной форме (что делать?) — -ться. Если в 3 лице (что делает?) — -тся.",
+        example: "Он (что делает?) учится. Ему нужно (что делать?) учиться.",
+        glossary: [],
+        question: "В каком глаголе пишется -ТСЯ (без мягкого знака)? Напиши это слово.",
+        correctAnswer: ["учится", "смеется", "нравится"],
+        explanation: "Правильные ответы: учится, смеется, нравится — 3 лицо (что делает?). В словах 'учиться', 'смеяться' — есть Ь."
     }
 ];
-
-
-// ==========================================================
-// 🎲 ГЕНЕРАТОР СЛУЧАЙНЫХ СЛОВ (АУДИОДИКТАНТ)
-// ==========================================================
 
 const allWords = [
     "авангард", "аннотация", "ватрушка", "винегрет", "виновный", 
@@ -231,17 +258,15 @@ function shuffleArray(array) {
     return array;
 }
 
-// Перемешиваем ВСЕ слова и берем 5 случайных
 const randomWords = shuffleArray([...allWords]).slice(0, 5);
 
-// Добавляем эти 5 слов в массив вопросов
 randomWords.forEach(word => {
     questions.push({
         type: "audio",
-        topic: "Словарные слова (ЕГЭ)",
+        topic: "Словарные слова (ОГЭ)",
         simple: "Нажми на кнопку 'Прослушать', чтобы услышать слово. Впиши его правильно.",
         theory: "В этом слове часто делают ошибку.",
-        example: "Слово из списка ЕГЭ.",
+        example: "Слово из списка ОГЭ.",
         glossary: [],
         question: "Прослушай слово и впиши его в поле.",
         wordToSpeak: word,
@@ -250,17 +275,14 @@ randomWords.forEach(word => {
     });
 });
 
-// ==========================================================
-// ИНИЦИАЛИЗАЦИЯ ИГРЫ
-// ==========================================================
-
 let currentQuestion = 0;
-let score = 0;
 let answered = false;
 let mistakes = [];
+let questionStatus = []; 
 
 let shuffledQuestions = shuffleArray([...questions]);
 
+const navContainer = document.getElementById('questionNav');
 const questionText = document.getElementById('questionText');
 const optionsContainer = document.getElementById('optionsContainer');
 const inputContainer = document.getElementById('inputContainer');
@@ -284,6 +306,7 @@ const tooltipTitle = document.getElementById('tooltipTitle');
 const tooltipText = document.getElementById('tooltipText');
 const closeTooltip = document.getElementById('closeTooltip');
 const audioControl = document.getElementById('audioControl');
+const skipBtn = document.getElementById('skipBtn');
 
 document.getElementById('themeToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -291,6 +314,24 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 });
 
 closeTooltip.addEventListener('click', () => tooltipBox.classList.remove('show'));
+function renderNav() {
+    navContainer.innerHTML = '';
+    shuffledQuestions.forEach((_, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'nav-btn';
+        btn.textContent = index + 1;
+        
+        if (index === currentQuestion) btn.classList.add('active');
+        if (questionStatus[index] === 'correct') btn.classList.add('answered-correct');
+        if (questionStatus[index] === 'wrong') btn.classList.add('answered-wrong');
+
+        btn.onclick = () => {
+            currentQuestion = index;
+            loadQuestion();
+        };
+        navContainer.appendChild(btn);
+    });
+}
 
 function loadQuestion() {
     answered = false;
@@ -339,15 +380,22 @@ function loadQuestion() {
     textInput.classList.remove('correct', 'wrong');
     textInput.disabled = false;
     submitBtn.disabled = false;
-    submitBtn.style.display = 'block';
-
+    
     const checkOptionsBtn = document.getElementById('checkOptionsBtn');
+    submitBtn.style.display = 'none';
+    checkOptionsBtn.style.display = 'none';
+
+    if (questionStatus[currentQuestion] === undefined) {
+        skipBtn.style.display = 'block';
+    } else {
+        skipBtn.style.display = 'none';
+    }
 
     if (q.type === 'options') {
         optionsContainer.style.display = 'flex';
         nextBtn.textContent = currentQuestion === shuffledQuestions.length - 1 ? 'Узнать результат 🎉' : 'Следующий вопрос →';
         
-        if (q.correctIndexes.length > 1) {
+        if (q.correctIndexes && q.correctIndexes.length > 1) {
             checkOptionsBtn.style.display = 'block';
             checkOptionsBtn.disabled = false;
         } else {
@@ -371,7 +419,7 @@ function loadQuestion() {
             btn.addEventListener('click', () => {
                 if (answered) return;
 
-                if (q.correctIndexes.length === 1) {
+                if (!q.correctIndexes || q.correctIndexes.length === 1) {
                     handleOptionClick(btn, opt.isCorrect, q);
                 } else {
                     if (btn.classList.contains('selected')) {
@@ -391,6 +439,7 @@ function loadQuestion() {
             answered = true;
             checkOptionsBtn.disabled = true;
             checkOptionsBtn.style.display = 'none';
+            skipBtn.style.display = 'none';
 
             const allButtons = document.querySelectorAll('.option-btn');
             allButtons.forEach(b => b.classList.add('disabled'));
@@ -403,7 +452,7 @@ function loadQuestion() {
                     const idx = q.options.indexOf(b.textContent);
                     if (q.correctIndexes.includes(idx)) b.classList.add('correct');
                 });
-                score++;
+                questionStatus[currentQuestion] = 'correct';
                 explanationText.textContent = "✅ Верно! " + q.explanation;
                 explanationBox.className = 'explanation show correct-bg';
             } else {
@@ -412,38 +461,41 @@ function loadQuestion() {
                     if (selectedOptions.includes(idx) && !q.correctIndexes.includes(idx)) b.classList.add('wrong');
                     if (q.correctIndexes.includes(idx)) b.classList.add('correct');
                 });
+                questionStatus[currentQuestion] = 'wrong';
                 mistakes.push(q.topic);
                 explanationText.textContent = "❌ Ошибка. " + q.explanation;
                 explanationBox.className = 'explanation show wrong-bg';
             }
             showNextBtn();
+            renderNav();
         };
-    } else if (q.type === 'input') {
+    } else if (q.type === 'input' || q.type === 'audio') {
         inputContainer.style.display = 'flex';
-        nextBtn.textContent = currentQuestion === shuffledQuestions.length - 1 ? 'Узнать результат 🎉' : 'Следующий вопрос →';
-        textInput.focus();
-    } else if (q.type === 'audio') {
-        inputContainer.style.display = 'flex';
-        audioControl.style.display = 'block';
+        submitBtn.style.display = 'block'; 
+        if (q.type === 'audio') audioControl.style.display = 'block';
         nextBtn.textContent = currentQuestion === shuffledQuestions.length - 1 ? 'Узнать результат 🎉' : 'Следующий вопрос →';
         textInput.focus();
     }
+    
+    renderNav();
 }
 
 function handleOptionClick(btn, isCorrect, q) {
     if (answered) return;
     answered = true;
+    skipBtn.style.display = 'none';
 
     const allButtons = document.querySelectorAll('.option-btn');
     allButtons.forEach(b => b.classList.add('disabled'));
 
     if (isCorrect) {
         btn.classList.add('correct');
-        score++;
+        questionStatus[currentQuestion] = 'correct';
         explanationText.textContent = "✅ Верно! " + q.explanation;
         explanationBox.className = 'explanation show correct-bg';
     } else {
         btn.classList.add('wrong');
+        questionStatus[currentQuestion] = 'wrong';
         mistakes.push(q.topic);
         allButtons.forEach((b) => {
             const originalIndex = q.options.indexOf(b.textContent);
@@ -455,6 +507,7 @@ function handleOptionClick(btn, isCorrect, q) {
         explanationBox.className = 'explanation show wrong-bg';
     }
     showNextBtn();
+    renderNav();
 }
 
 function handleInputSubmit() {
@@ -465,28 +518,54 @@ function handleInputSubmit() {
     textInput.disabled = true;
     submitBtn.disabled = true;
     submitBtn.style.display = 'none';
+    skipBtn.style.display = 'none';
     
     let userAnswer = textInput.value.trim().toLowerCase().replace(/ё/g, 'е');
     let isCorrectInput = q.correctAnswer.some(ans => ans.toLowerCase().replace(/ё/g, 'е') === userAnswer);
 
     if (isCorrectInput) {
         textInput.classList.add('correct');
-        score++;
+        questionStatus[currentQuestion] = 'correct';
         explanationText.textContent = "✅ Верно! " + q.explanation;
         explanationBox.className = 'explanation show correct-bg';
     } else {
         textInput.classList.add('wrong');
+        questionStatus[currentQuestion] = 'wrong';
         mistakes.push(q.topic);
         explanationText.textContent = "❌ Ошибка. Правильный ответ: " + q.correctAnswer[0] + ". " + q.explanation;
         explanationBox.className = 'explanation show wrong-bg';
     }
     showNextBtn();
+    renderNav();
 }
 
 function showNextBtn() {
     nextBtn.classList.add('show');
     if (currentQuestion === shuffledQuestions.length - 1) progressBar.style.width = '100%';
 }
+
+skipBtn.addEventListener('click', () => {
+    let nextUnanswered = -1;
+    for (let i = 1; i <= shuffledQuestions.length; i++) {
+        let checkIndex = (currentQuestion + i) % shuffledQuestions.length;
+        if (questionStatus[checkIndex] === undefined) {
+            nextUnanswered = checkIndex;
+            break;
+        }
+    }
+    
+    if (nextUnanswered !== -1) {
+        currentQuestion = nextUnanswered;
+        loadQuestion();
+    } else {
+        currentQuestion++;
+        if (currentQuestion < shuffledQuestions.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }
+});
 
 document.getElementById('playAudioBtn').addEventListener('click', () => {
     const q = shuffledQuestions[currentQuestion];
@@ -514,10 +593,12 @@ nextBtn.addEventListener('click', () => {
 
 function showResults() {
     quizContent.style.display = 'none';
+    navContainer.style.display = 'none';
     resultsScreen.style.display = 'block';
     
     let total = shuffledQuestions.length;
-    let percent = (score / total) * 100;
+    let finalScore = questionStatus.filter(status => status === 'correct').length;
+    let percent = (finalScore / total) * 100;
     let grade = 2;
 
     if (percent >= 85) grade = 5;
@@ -525,7 +606,7 @@ function showResults() {
     else if (percent >= 40) grade = 3;
     else grade = 2;
 
-    document.getElementById('finalScore').textContent = `${score}/${total}`;
+    document.getElementById('finalScore').textContent = `${finalScore}/${total}`;
     
     const gradeEl = document.getElementById('finalGrade');
     gradeEl.textContent = grade;
