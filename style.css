@@ -1,25 +1,95 @@
-/* Базовые стили */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-dark: #0a0a10;
+    --bg-panel: rgba(20, 20, 30, 0.6);
+    --bg-bottom: #121212;
+    --neon-pink: #ff007f;
+    --neon-purple: #8a2be2;
+    --text-main: #ffffff;
+    --text-muted: #8b8b9f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ═══════════════════════════════════════════ */
+/* 🌞 СВЕТЛАЯ ТЕМА (МОЛОЧНЫЙ ЗАКАТ)             */
+/* ═══════════════════════════════════════════ */
+body.light-mode {
+    background-color: #fdfbfb;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(255, 218, 224, 0.6), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(202, 218, 255, 0.6), transparent 40%),
+        linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    color: #2d3748;
+    min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════ */
+/* 🌙 ТЁМНАЯ ТЕМА (НОЧНОЕ НЕБО)                 */
+/* ═══════════════════════════════════════════ */
+body.dark-mode {
+    background-color: #0b0c10;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(92, 51, 178, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.1), transparent 40%),
+        linear-gradient(135deg, #0b0c10 0%, #1a1a2e 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0 !important;
     padding: 40px 20px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: flex-start !important;
-    min-height: 100vh !important;
     box-sizing: border-box !important;
     transition: background 0.4s, color 0.4s;
 }
 
-body.light-mode {
-    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-    color: #1e293b;
-}
-body.dark-mode {
-    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-    color: #f8fafc;
+/* ═══════════════════════════════════════════ */
+/* ✨ БОНУС: СВЕТЯЩИЕСЯ ПУЗЫРИ НА ФОНЕ          */
+/* ═══════════════════════════════════════════ */
+body::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.2) 0%, transparent 60%);
+    filter: blur(80px);
+    z-index: -1;
+    animation: float 10s infinite alternate;
 }
 
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, transparent 60%);
+    filter: blur(80px);
+    z-index: -1;
+    animation: float 12s infinite alternate-reverse;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* ═══════════════════════════════════════════ */
+/* 📦 КАРКАС И ПАНЕЛИ                          */
+/* ═══════════════════════════════════════════ */
 .quiz-app {
     width: 100%;
     max-width: 850px;
@@ -52,36 +122,199 @@ body.dark-mode .quiz-header {
 }
 .header-top h1 { margin: 0; font-size: 22px; font-weight: 800; }
 
+/* ═══════════════════════════════════════════ */
+/* 🌗 ПРЕМИАЛЬНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ           */
+/* ═══════════════════════════════════════════ */
+
 .theme-switch {
     position: relative;
-    width: 64px; height: 32px;
-    background: #cbd5e1; border-radius: 50px; border: none;
-    cursor: pointer; display: flex; align-items: center; padding: 0 4px;
-    box-sizing: border-box; transition: background 0.3s;
+    width: 64px;
+    height: 34px;
+    background: #cbd5e1; /* Светло-серый фон для светлой темы */
+    border-radius: 34px;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    transition: background 0.4s ease;
+    display: flex;
+    align-items: center;
 }
-body.dark-mode .theme-switch { background: #334155; }
-.theme-switch::after {
-    content: '☀️'; position: absolute; left: 4px;
-    width: 24px; height: 24px; background: #ffffff; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; transition: transform 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-body.dark-mode .theme-switch::after { content: '🌙'; transform: translateX(32px); background: #1e293b; }
-.theme-switch span { display: none; }
 
-.progress-container {
-    height: 8px; background: rgba(0,0,0,0.05); border-radius: 10px; overflow: hidden; margin-bottom: 10px;
+body.dark-mode .theme-switch {
+    background: #1e293b; /* Тёмный фон для тёмной темы */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
 }
-body.dark-mode .progress-container { background: rgba(255,255,255,0.05); }
-.progress-bar {
-    height: 100%; background: linear-gradient(90deg, #6366f1, #a855f7); width: 0%; transition: width 0.4s ease;
+
+/* Сам кругляшок (бегунок) */
+.toggle-thumb {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background 0.4s;
+    transform: translateX(0);
 }
-.progress-text {
-    font-size: 13px; font-weight: 700; display: block; text-align: right; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7;
+
+/* В тёмной теме бегунок уезжает вправо и становится темнее */
+body.dark-mode .toggle-thumb {
+    transform: translateX(30px);
+    background: #334155;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
+
+/* Иконки внутри кругляшка */
+.toggle-thumb svg {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Солнце */
+.icon-sun {
+    color: #f59e0b; /* Оранжевый */
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Луна */
+.icon-moon {
+    color: #818cf8; /* Светло-синий */
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+/* Меняем иконки местами в тёмной теме */
+body.dark-mode .icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+body.dark-mode .icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════ */
+/* 🔢 СТИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ                 */
+/* ═══════════════════════════════════════════ */
+
+.question-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    justify-content: center; /* Центрируем кнопки */
+}
+
+body.dark-mode .question-nav {
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Базовая кнопка */
+.nav-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: #ffffff;
+    color: #475569;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 -2px 0 rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Наведение (эффект поднятия и свечения) */
+.nav-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 15px rgba(99, 102, 241, 0.2), inset 0 -2px 0 rgba(0,0,0,0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: #4f46e5;
+}
+
+/* Тёмная тема */
+body.dark-mode .nav-btn {
+    background: #1e293b;
+    color: #94a3b8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+body.dark-mode .nav-btn:hover {
+    background: #334155;
+    color: #a5b4fc;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border-color: rgba(165, 180, 252, 0.3);
+}
+
+/* ───── СТАТУСЫ ───── */
+
+/* ТЕКУЩИЙ ВОПРОС (Активный) */
+.nav-btn.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #ffffff;
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3), 0 8px 15px rgba(99, 102, 241, 0.4);
+    transform: scale(1.1); /* Чуть больше остальных */
+    z-index: 2;
+}
+
+/* ОТВЕЧЕН ПРАВИЛЬНО */
+.nav-btn.answered-correct {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #4ade80;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+body.dark-mode .nav-btn.answered-correct {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* ОТВЕЧЕН НЕПРАВИЛЬНО */
+.nav-btn.answered-wrong {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #f87171;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+}
+body.dark-mode .nav-btn.answered-wrong {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+body.dark-mode .nav-btn {
+    background: #1e293b; border-color: #334155; color: #f8fafc;
+}
+.nav-btn:hover { border-color: #6366f1; transform: translateY(-2px); }
+.nav-btn.active {
+    border-color: #6366f1; background: #6366f1; color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+.nav-btn.answered-correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+body.dark-mode .nav-btn.answered-correct { background: rgba(34, 197, 94, 0.2); border-color: #22c55e; color: #4ade80; }
+.nav-btn.answered-wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+body.dark-mode .nav-btn.answered-wrong { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #f87171; }
 
 .quiz-card { padding: 35px; }
-
 .theory-box {
     background: rgba(99, 102, 241, 0.05); border: 2px solid rgba(99, 102, 241, 0.1);
     border-radius: 16px; padding: 24px; margin-bottom: 30px; display: flex; gap: 15px;
@@ -154,6 +387,7 @@ body.dark-mode .text-input.wrong { background: rgba(239, 68, 68, 0.2) !important
 .submit-btn {
     background: #6366f1; color: white; border: none; padding: 18px; border-radius: 12px;
     font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.2s; font-family: inherit;
+    width: 100%; margin-top: 20px;
 }
 .submit-btn:hover { background: #4f46e5; }
 
@@ -177,6 +411,34 @@ body.dark-mode .explanation.wrong-bg { background: rgba(239, 68, 68, 0.1); color
 }
 .next-btn:hover { background: #4f46e5; }
 .next-btn.show { display: block; animation: slideDown 0.3s ease; }
+
+.skip-btn {
+    background: transparent;
+    border: 2px dashed #94a3b8;
+    color: #64748b;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.2s;
+    width: 100%;
+    font-family: inherit;
+}
+.skip-btn:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.05);
+}
+body.dark-mode .skip-btn {
+    color: #94a3b8;
+    border-color: #475569;
+}
+body.dark-mode .skip-btn:hover {
+    border-color: #818cf8;
+    color: #818cf8;
+}
 
 .results-screen {
     padding: 60px 40px; text-align: center; display: none;
