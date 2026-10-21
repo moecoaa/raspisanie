@@ -11,79 +11,74 @@
         <div class="quiz-header">
             <div class="header-top">
                 <h1>🎓 Тренажёр по русскому</h1>
-                <button id="themeToggle" class="theme-switch" aria-label="Переключить тему">
-    <div class="toggle-thumb">
-        <!-- Иконка Солнца (SVG) -->
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <!-- Иконка Луны (SVG) -->
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    </div>
-</button>
+                <button id="themeToggle" class="theme-switch">
+                    <div class="toggle-thumb">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </div>
+                </button>
             </div>
+            
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
-            <span class="progress-text" id="progressText">Вопрос 1 из 20</span>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <span class="timer-text" id="timerText">⏱ 0:00</span>
+                <span class="progress-text" id="progressText">Вопрос 1 из 20</span>
+            </div>
         </div>
 
-        <!-- Панель навигации по вопросам -->
+        <!-- Навигация по центру -->
         <div class="question-nav" id="questionNav"></div>
 
         <div class="quiz-card" id="quizContent">
-            <div class="theory-box">
-                <div class="theory-icon">💡</div>
-                <div class="theory-content">
-                    <h3 id="theoryTitle">Тема</h3>
-                    <div class="simple-explain" id="simpleText"></div>
-                    <div class="official-rule"><strong>Правило:</strong> <span id="theoryText"></span></div>
-                    <div class="example-box" id="exampleBox">
-                        <strong>Пример:</strong> <span id="exampleText"></span>
-                    </div>
-                    <div class="glossary" id="glossaryBox"></div>
-                    <div class="custom-tooltip" id="tooltipBox">
-                        <div class="tooltip-header"><span id="tooltipTitle">Термин</span><button id="closeTooltip">✕</button></div>
-                        <p id="tooltipText"></p>
+            <!-- Левая колонка: Теория -->
+            <div class="quiz-sidebar">
+                <div class="theory-box">
+                    <div class="theory-icon">💡</div>
+                    <div class="theory-content">
+                        <h3 id="theoryTitle">Тема</h3>
+                        <div class="simple-explain" id="simpleText"></div>
+                        <div class="official-rule"><strong>Правило:</strong> <span id="theoryText"></span></div>
+                        <div class="example-box" id="exampleBox">
+                            <strong>Пример:</strong> <span id="exampleText"></span>
+                        </div>
+                        <div class="glossary" id="glossaryBox"></div>
+                        <div class="custom-tooltip" id="tooltipBox">
+                            <div class="tooltip-header"><span id="tooltipTitle">Термин</span><button id="closeTooltip">✕</button></div>
+                            <p id="tooltipText"></p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <h2 id="questionText">Загрузка...</h2>
-            
-            <!-- Кнопки для тестов с выбором вариантов -->
-            <div class="options" id="optionsContainer"></div>
-            
-            <!-- Кнопки для ввода текста / аудио -->
-            <div class="input-container" id="inputContainer" style="display: none;">
-                <div class="audio-control" id="audioControl" style="display: none;">
-                    <button class="play-audio-btn" id="playAudioBtn">🔊 Прослушать слово</button>
+            <!-- Правая колонка: Задание -->
+            <div class="quiz-main">
+                <h2 id="questionText">Загрузка...</h2>
+                
+                <div class="options" id="optionsContainer"></div>
+                <button class="submit-btn" id="checkOptionsBtn" style="display: none; margin-top: 15px;">Проверить ответы</button>
+                
+                <div class="input-container" id="inputContainer" style="display: none;">
+                    <div class="audio-control" id="audioControl" style="display: none;">
+                        <button class="play-audio-btn" id="playAudioBtn">🔊 Прослушать слово</button>
+                    </div>
+                    <input type="text" id="textInput" class="text-input" placeholder="Впиши ответ сюда..." autocomplete="off">
+                    <button class="submit-btn" id="submitBtn">Проверить</button>
                 </div>
-                <input type="text" id="textInput" class="text-input" placeholder="Впиши ответ сюда..." autocomplete="off">
+
+                <div class="explanation" id="explanationBox">
+                    <p id="explanationText"></p>
+                </div>
+
+                <button class="skip-btn" id="skipBtn" style="display: none;">Пропустить вопрос</button>
+                <button class="next-btn" id="nextBtn">Следующий вопрос →</button>
             </div>
-
-            <!-- ЕДИНАЯ КНОПКА "ПРОВЕРИТЬ" -->
-            <button class="submit-btn" id="submitBtn" style="display: none;">Проверить</button>
-            
-            <!-- Кнопка для мультивыбора -->
-            <button class="submit-btn" id="checkOptionsBtn" style="display: none; margin-top: 15px;">Проверить ответы</button>
-
-            <div class="explanation" id="explanationBox">
-                <p id="explanationText"></p>
-            </div>
-
-            <button class="skip-btn" id="skipBtn" style="display: none;">Пропустить вопрос (вернусь позже)</button>
-            <button class="next-btn" id="nextBtn">Следующий вопрос →</button>
         </div>
 
         <div class="results-screen" id="resultsScreen">
@@ -101,6 +96,7 @@
         </div>
     </div>
 
+    <canvas id="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; display: none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
