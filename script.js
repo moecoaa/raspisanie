@@ -336,10 +336,7 @@ const anatomyRaw = [
 ];
 
 // ==========================================
-// 🔄 АДАПТЕР: превращаем сырые данные в формат тренера
-// ==========================================
-// ==========================================
-// 🔄 УМНЫЙ АДАПТЕР: Текстовые и Тестовые (с 2 правильными) вопросы
+// 🔄 УМНЫЙ АДАПТЕР: Рандом (1 или 2 правильных ответа)
 // ==========================================
 function adaptQuestions(raw) {
     const allCleanAnswers = raw.map(q => {
@@ -352,14 +349,16 @@ function adaptQuestions(raw) {
         let ans = q.answer;
         if (ans.endsWith('.')) ans = ans.slice(0, -1);
 
+        // Каждый второй вопрос делаем с вариантами ответов
         if (index % 2 !== 0) {
-            // Случайно решаем: 1 или 2 правильных ответа (50 на 50)
+            // Рандом: 50% шанс, что будет 2 правильных ответа, 50% — что 1
             const needTwoAnswers = Math.random() > 0.5;
-
+            
             let wrongOptions = new Set();
             let attempts = 0;
             let neededWrong = needTwoAnswers ? 2 : 3; // Если 2 правильных, то 2 неправильных. Если 1 правильный, то 3 неправильных.
 
+            // Ищем нужное количество неправильных ответов
             while (wrongOptions.size < neededWrong && attempts < 100) {
                 let randomAns = allCleanAnswers[Math.floor(Math.random() * allCleanAnswers.length)];
                 if (randomAns !== ans && !wrongOptions.has(randomAns)) {
@@ -369,47 +368,59 @@ function adaptQuestions(raw) {
             }
 
             let options = [ans];
-            let correctIndexes = [0];
+            let correctStrings = [ans];
 
+            // Если нужно два правильных, ищем второй ответ в этой же теме
             if (needTwoAnswers) {
-                let secondCorrectAns = allCleanAnswers[(index + 1) % allCleanAnswers.length];
-                if (secondCorrectAns === ans) {
-                    secondCorrectAns = allCleanAnswers[(index + 2) % allCleanAnswers.length];
+                // Берем случайный вопрос из этой же темы (например, из Клетки)
+                const sameTopicQuestions = raw.filter(item => item.topic === q.topic && item.answer !== q.answer);
+                
+                if (sameTopicQuestions.length > 0) {
+                    let randomSameTopic = sameTopicQuestions[Math.floor(Math.random() * sameTopicQuestions.length)];
+                    let secondAns = randomSameTopic.answer;
+                    if (secondAns.endsWith('.')) secondAns = secondAns.slice(0, -1);
+                    
+                    options.push(secondAns);
+                    correctStrings.push(secondAns);
+                } else {
+                    // Если в теме всего 1 вопрос, просто делаем 1 правильный
+                    neededWrong = 3; 
                 }
-                options.push(secondCorrectAns);
-                correctIndexes.push(1);
             }
 
+            // Пересчитываем, сколько неправильных нам реально нужно
+            neededWrong = 4 - options.length;
+            attempts = 0;
+            while (wrongOptions.size < neededWrong && attempts < 100) {
+                let randomAns = allCleanAnswers[Math.floor(Math.random() * allCleanAnswers.length)];
+                if (!correctStrings.includes(randomAns) && !wrongOptions.has(randomAns)) {
+                    wrongOptions.add(randomAns);
+                }
+                attempts++;
+            }
+
+            // Собираем все варианты и перемешиваем
             options = options.concat(Array.from(wrongOptions));
             options = options.sort(() => Math.random() - 0.5);
 
-            // Пересчитываем правильные индексы после перемешивания
+            // Находим индексы правильных ответов
             let finalCorrectIndexes = [];
             options.forEach((opt, i) => {
-                if (opt === ans || (needTwoAnswers && opt === options[options.indexOf(ans) + 1])) {
-                    // небольшая магия, чтобы найти второй правильный после сортировки
-                }
-                // Проще проверить так:
-            });
-
-            // Пересчет правильных индексов надежным способом:
-            let correctStrings = needTwoAnswers ? [ans, allCleanAnswers[(index + 1) % allCleanAnswers.length]] : [ans];
-            options.forEach((opt, i) => {
                 if (correctStrings.includes(opt) && !finalCorrectIndexes.includes(i)) {
-                     // Исключаем случайные совпадения
-                     if (finalCorrectIndexes.length < correctStrings.length) finalCorrectIndexes.push(i);
+                    if (finalCorrectIndexes.length < correctStrings.length) finalCorrectIndexes.push(i);
                 }
             });
 
             return {
                 topic: `${q.level} класс: ${q.topic}`,
                 type: "options",
-                question: q.question + (needTwoAnswers ? "<br><span style='font-size: 0.85em; opacity: 0.8; font-style: italic;'>(Выберите два правильных варианта)</span>" : ""),
+                question: q.question + (needTwoAnswers && finalCorrectIndexes.length === 2 ? "<br><span style='font-size: 0.85em; opacity: 0.8; font-style: italic;'>(Выберите два правильных варианта)</span>" : ""),
                 options: options,
                 correctIndexes: finalCorrectIndexes,
                 explanation: q.answer
             };
         } else {
+            // Четные вопросы оставляем текстовыми
             return {
                 topic: `${q.level} класс: ${q.topic}`,
                 type: "input",
