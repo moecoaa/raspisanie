@@ -338,14 +338,87 @@ const anatomyRaw = [
 // ==========================================
 // 🔄 АДАПТЕР: превращаем сырые данные в формат тренера
 // ==========================================
+// ==========================================
+// 🔄 УМНЫЙ АДАПТЕР: Текстовые и Тестовые (с 2 правильными) вопросы
+// ==========================================
 function adaptQuestions(raw) {
-    return raw.map(q => ({
-        topic: `${q.level} класс: ${q.topic}`,
-        type: "input",
-        question: q.question,
-        correctAnswer: [q.answer],       // массив — чтобы handleInputSubmit не падал
-        explanation: q.answer           // показываем ответ как пояснение
-    }));
+    const allCleanAnswers = raw.map(q => {
+        let ans = q.answer;
+        if (ans.endsWith('.')) ans = ans.slice(0, -1);
+        return ans;
+    });
+
+    return raw.map((q, index) => {
+        let ans = q.answer;
+        if (ans.endsWith('.')) ans = ans.slice(0, -1);
+
+        if (index % 2 !== 0) {
+            // Случайно решаем: 1 или 2 правильных ответа (50 на 50)
+            const needTwoAnswers = Math.random() > 0.5;
+
+            let wrongOptions = new Set();
+            let attempts = 0;
+            let neededWrong = needTwoAnswers ? 2 : 3; // Если 2 правильных, то 2 неправильных. Если 1 правильный, то 3 неправильных.
+
+            while (wrongOptions.size < neededWrong && attempts < 100) {
+                let randomAns = allCleanAnswers[Math.floor(Math.random() * allCleanAnswers.length)];
+                if (randomAns !== ans && !wrongOptions.has(randomAns)) {
+                    wrongOptions.add(randomAns);
+                }
+                attempts++;
+            }
+
+            let options = [ans];
+            let correctIndexes = [0];
+
+            if (needTwoAnswers) {
+                let secondCorrectAns = allCleanAnswers[(index + 1) % allCleanAnswers.length];
+                if (secondCorrectAns === ans) {
+                    secondCorrectAns = allCleanAnswers[(index + 2) % allCleanAnswers.length];
+                }
+                options.push(secondCorrectAns);
+                correctIndexes.push(1);
+            }
+
+            options = options.concat(Array.from(wrongOptions));
+            options = options.sort(() => Math.random() - 0.5);
+
+            // Пересчитываем правильные индексы после перемешивания
+            let finalCorrectIndexes = [];
+            options.forEach((opt, i) => {
+                if (opt === ans || (needTwoAnswers && opt === options[options.indexOf(ans) + 1])) {
+                    // небольшая магия, чтобы найти второй правильный после сортировки
+                }
+                // Проще проверить так:
+            });
+
+            // Пересчет правильных индексов надежным способом:
+            let correctStrings = needTwoAnswers ? [ans, allCleanAnswers[(index + 1) % allCleanAnswers.length]] : [ans];
+            options.forEach((opt, i) => {
+                if (correctStrings.includes(opt) && !finalCorrectIndexes.includes(i)) {
+                     // Исключаем случайные совпадения
+                     if (finalCorrectIndexes.length < correctStrings.length) finalCorrectIndexes.push(i);
+                }
+            });
+
+            return {
+                topic: `${q.level} класс: ${q.topic}`,
+                type: "options",
+                question: q.question + (needTwoAnswers ? "<br><span style='font-size: 0.85em; opacity: 0.8; font-style: italic;'>(Выберите два правильных варианта)</span>" : ""),
+                options: options,
+                correctIndexes: finalCorrectIndexes,
+                explanation: q.answer
+            };
+        } else {
+            return {
+                topic: `${q.level} класс: ${q.topic}`,
+                type: "input",
+                question: q.question,
+                correctAnswer: [ans],
+                explanation: q.answer
+            };
+        }
+    });
 }
 
 // ==========================================
@@ -498,13 +571,15 @@ function loadQuestion() {
         document.getElementById('skipBtn').style.display = 'none';
     }
 
-    if (q.type === 'options') {
+   if (q.type === 'options') {
         optionsContainer.style.display = 'flex';
         nextBtn.textContent = currentQuestion === currentQuestions.length - 1 ? 'Узнать результат 🎉' : 'Следующий вопрос →';
         
+        const isAlreadyAnswered = questionStatus[currentQuestion] !== undefined;
+
         if (q.correctIndexes && q.correctIndexes.length > 1) {
             checkOptionsBtn.style.display = 'block';
-            checkOptionsBtn.disabled = false;
+            checkOptionsBtn.disabled = isAlreadyAnswered; // Блокируем, если уже отвечено
         }
 
         let selectedOptions = [];
@@ -519,8 +594,16 @@ function loadQuestion() {
             btn.className = 'option-btn';
             btn.textContent = opt.text;
             
+            // Если уже отвечено, сразу подсвечиваем правильные и неправильные
+            if (isAlreadyAnswered) {
+                btn.classList.add('disabled');
+                if (opt.isCorrect) btn.classList.add('correct');
+                // Если пользователь ответил неправильно, можно было бы подсветить его выбор красным, 
+                // но для простоты просто блокируем кнопки.
+            }
+
             btn.addEventListener('click', () => {
-                if (answered) return;
+                if (answered || isAlreadyAnswered) return; // Блокируем клик, если уже отвечено
 
                 if (!q.correctIndexes || q.correctIndexes.length === 1) {
                     handleOptionClick(btn, opt.isCorrect, q);
