@@ -7,17 +7,12 @@
     </radialGradient>
   </defs>
   
-  <!-- Убрали черный квадрат, теперь вирус занимает всё место -->
-  
-  <!-- Внешняя мембрана (сделал больше и толще) -->
   <path d="M50 5 C85 5 95 30 95 50 C95 85 70 95 50 95 C15 95 5 70 5 50 C5 15 30 5 50 5 Z" fill="url(#toxicCell)" stroke="#ffea00" stroke-width="6" stroke-dasharray="10 6"/>
   
-  <!-- Внутренности (ядро и мутации) -->
   <circle cx="45" cy="45" r="15" fill="#00ffff"/>
   <circle cx="65" cy="60" r="8" fill="#7000ff"/>
   <circle cx="35" cy="65" r="10" fill="#7000ff"/>
   
-  <!-- Брызги -->
   <path d="M15 20 L20 25 M85 80 L80 75 M25 85 L30 80" stroke="#00ffff" stroke-width="3" stroke-linecap="round"/>
   <circle cx="75" cy="20" r="4" fill="#ffea00"/>
   <circle cx="20" cy="75" r="4" fill="#ffea00"/>
