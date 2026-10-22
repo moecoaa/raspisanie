@@ -330,3 +330,66 @@ body.dark-mode .grade-mark { border-color: #334155; }
         font-size: 13px;
     }
 }
+/* ========================================== */
+/* ========================================== */
+/* 📱 УЛУЧШЕНИЯ ДЛЯ МОБИЛЬНЫХ И ТЕМ            */
+/* ========================================== */
+
+/* 1. Зелёный градиент ТОЛЬКО для тёмной темы */
+body.dark-mode .nav-btn {
+    background: linear-gradient(135deg, #1b382b 0%, #12251b 100%) !important;
+    color: #a7f3d0 !important;
+    border: 1px solid #2f5c45 !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.2s ease !important;
+}
+
+body.dark-mode .nav-btn:hover {
+    background: linear-gradient(135deg, #234b38 0%, #173324 100%) !important;
+    color: #d1fae5 !important;
+    border-color: #3b7a5a !important;
+    transform: translateY(-1px) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 6px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .nav-btn.active {
+    border: 2px solid #10b981 !important;
+    background: linear-gradient(135deg, #256d4b 0%, #194a32 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .nav-btn.answered-correct {
+    background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+    border-color: #22c55e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .nav-btn.answered-wrong {
+    background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%) !important;
+    border-color: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+/* 2. Защита от зума на iPhone при нажатии на поле ввода */
+.text-input {
+    font-size: 16px !important;
+}
+
+/* 3. Мобильные улучшения (кнопки крупнее, отступы удобнее) */
+@media (max-width: 768px) {
+    .topic-card {
+        padding: 18px 15px;
+    }
+    
+    .exit-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .submit-btn, .next-btn {
+        padding: 16px;
+        font-size: 16px;
+    }
+}
