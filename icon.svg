@@ -1,6 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#0d1117"/>
-  <path d="M40 20 L40 40 L25 70 Q23 78 30 82 L70 82 Q77 78 75 70 L60 40 L60 20 Z" fill="none" stroke="#22c55e" stroke-width="5" stroke-linejoin="round"/>
-  <line x1="36" y1="20" x2="64" y2="20" stroke="#22c55e" stroke-width="6" stroke-linecap="round"/>
-  <path d="M40 55 Q50 45 60 55 M40 65 Q50 55 60 65 M40 75 Q50 65 60 75" stroke="#14b8a6" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="toxicCell" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff5e00" />
+      <stop offset="70%" stop-color="#ff004c" />
+      <stop offset="100%" stop-color="#4a004e" />
+    </radialGradient>
+  </defs>
+  <rect width="100" height="100" rx="16" fill="#000000"/>
+  
+  <!-- Внешняя мембрана -->
+  <path d="M50 15 C75 15 85 35 85 50 C85 75 65 85 50 85 C25 85 15 65 15 50 C15 25 35 15 50 15 Z" fill="url(#toxicCell)" stroke="#ffea00" stroke-width="3" stroke-dasharray="8 4"/>
+  
+  <!-- Внутренности (ядро) -->
+  <circle cx="45" cy="45" r="12" fill="#00ffff" opacity="0.8"/>
+  <circle cx="65" cy="60" r="6" fill="#7000ff"/>
+  <circle cx="35" cy="65" r="8" fill="#7000ff"/>
+  
+  <!-- Брызги/мутации -->
+  <path d="M20 25 L25 30 M80 75 L75 70 M30 80 L35 75" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="75" cy="25" r="2" fill="#ffea00"/>
+  <circle cx="25" cy="70" r="3" fill="#ffea00"/>
+  <circle cx="70" cy="35" r="1.5" fill="#ffffff"/>
 </svg>
