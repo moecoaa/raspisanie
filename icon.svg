@@ -6,19 +6,20 @@
       <stop offset="100%" stop-color="#4a004e" />
     </radialGradient>
   </defs>
-  <rect width="100" height="100" rx="16" fill="#000000"/>
   
-  <!-- Внешняя мембрана -->
-  <path d="M50 15 C75 15 85 35 85 50 C85 75 65 85 50 85 C25 85 15 65 15 50 C15 25 35 15 50 15 Z" fill="url(#toxicCell)" stroke="#ffea00" stroke-width="3" stroke-dasharray="8 4"/>
+  <!-- Убрали черный квадрат, теперь вирус занимает всё место -->
   
-  <!-- Внутренности (ядро) -->
-  <circle cx="45" cy="45" r="12" fill="#00ffff" opacity="0.8"/>
-  <circle cx="65" cy="60" r="6" fill="#7000ff"/>
-  <circle cx="35" cy="65" r="8" fill="#7000ff"/>
+  <!-- Внешняя мембрана (сделал больше и толще) -->
+  <path d="M50 5 C85 5 95 30 95 50 C95 85 70 95 50 95 C15 95 5 70 5 50 C5 15 30 5 50 5 Z" fill="url(#toxicCell)" stroke="#ffea00" stroke-width="6" stroke-dasharray="10 6"/>
   
-  <!-- Брызги/мутации -->
-  <path d="M20 25 L25 30 M80 75 L75 70 M30 80 L35 75" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="75" cy="25" r="2" fill="#ffea00"/>
-  <circle cx="25" cy="70" r="3" fill="#ffea00"/>
-  <circle cx="70" cy="35" r="1.5" fill="#ffffff"/>
+  <!-- Внутренности (ядро и мутации) -->
+  <circle cx="45" cy="45" r="15" fill="#00ffff"/>
+  <circle cx="65" cy="60" r="8" fill="#7000ff"/>
+  <circle cx="35" cy="65" r="10" fill="#7000ff"/>
+  
+  <!-- Брызги -->
+  <path d="M15 20 L20 25 M85 80 L80 75 M25 85 L30 80" stroke="#00ffff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="75" cy="20" r="4" fill="#ffea00"/>
+  <circle cx="20" cy="75" r="4" fill="#ffea00"/>
+  <circle cx="70" cy="35" r="3" fill="#ffffff"/>
 </svg>
